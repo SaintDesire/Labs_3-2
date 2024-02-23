@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\Lab_01a\\Lab_01a\\wwwroot\\calculate.html",
+      "PackagePath": "staticwebassets\\calculate.html"
+    },
+    {
+      "Id": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\Lab_01a\\Lab_01a\\wwwroot\\calculateWithForm.html",
+      "PackagePath": "staticwebassets\\calculateWithForm.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Lab_01a.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Lab_01a.props",
+      "PackagePath": "build\\Lab_01a.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Lab_01a.props",
+      "PackagePath": "buildMultiTargeting\\Lab_01a.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Lab_01a.props",
+      "PackagePath": "buildTransitive\\Lab_01a.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

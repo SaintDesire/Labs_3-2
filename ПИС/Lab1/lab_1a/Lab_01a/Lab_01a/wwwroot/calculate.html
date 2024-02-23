@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Calculate the product of x and y</h2>
+
+    <p>x:</p>
+    <input id="x">
+
+    <p>y:</p>
+    <input id="y">
+    <p id="error" style="color: red"></p>
+
+    <button onclick="sendRequest()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+        const sendRequest = () => {
+          var x = document.getElementById('x').value;
+          var y = document.getElementById('y').value;
+
+            if (!+x || !+y) {
+                document.getElementById('error').innerText = 'Error!!!'
+            }
+            else {
+                document.getElementById('error').innerText = ''
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/calculate', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function () {
+                    document.getElementById('result').innerText = 'Result: ' + xhr.responseText;
+                };
+                xhr.send(JSON.stringify({ x: parseInt(x), y: parseInt(y) }));
+            }
+}
+    </script>
+
+</body>
+</html>
