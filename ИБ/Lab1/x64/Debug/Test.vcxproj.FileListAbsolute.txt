@@ -1,0 +1,2 @@
+C:\Users\p1v0var\Desktop\labs_3-2\ПИС\Lab1\Test\x64\Debug\Test.exe
+C:\Users\p1v0var\Desktop\labs_3-2\ИБ\Lab1\x64\Debug\Test.exe
