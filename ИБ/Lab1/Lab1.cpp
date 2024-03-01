@@ -56,6 +56,7 @@ double amount_info_with_error(double entropy, double p, double q, int count, boo
 
 int main() {
     setlocale(LC_ALL, "rus");
+
     // Задание 1
     std::string macedonian_text = load_text_file("makedon.txt");
     std::string turkish_text = load_text_file("turkey.txt");
@@ -87,6 +88,8 @@ int main() {
     double turkish_entropy = calculate_entropy(turkish_frequencies);
     std::cout << "Энтропия турецкого текста: " << turkish_entropy << std::endl;
 
+
+
     // Задание 2
     std::vector<unsigned char> macedonian_binary_data = text_to_binary(macedonian_text);
     std::vector<unsigned char> turkish_binary_data = text_to_binary(turkish_text);
@@ -113,6 +116,8 @@ int main() {
     double turkish_binary_entropy = calculate_entropy(turkish_binary_frequencies);
     std::cout << "Энтропия турецкого бинарного алфавита: " << turkish_binary_entropy << std::endl;
 
+
+
     // Задание 3
     std::string FIO_macedonian_text = "Коршун Никита Игоревич";
     std::string FIO_turkish_text = "Korşun Nikita İgoreviç";
@@ -126,6 +131,8 @@ int main() {
     std::cout << "Количество информации на основе турецкого сообщения: " << turkish_entropy * FIO_turkish_text.length() << std::endl;
     std::cout << "Количество информации на основе бинарного сообщения: " << binary_entropy * binary_FIO.length() << std::endl;
     std::cout << "Бинарная энтропия: " << binary_entropy << std::endl;
+
+
 
     // Задание 4
     std::vector<double> error_probabilities = { 0.1, 0.5, 1.0 };

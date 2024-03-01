@@ -1,0 +1,9 @@
+use StaffRecruit;
+CREATE LOGIN AdminUser WITH PASSWORD = 'test111', CHECK_POLICY = OFF;
+CREATE LOGIN RegularUser WITH PASSWORD = 'test222', CHECK_POLICY = OFF;
+
+CREATE USER AdminUser FOR LOGIN AdminUser;
+ALTER ROLE db_owner ADD MEMBER AdminUser;
+
+CREATE USER RegularUser FOR LOGIN RegularUser;
+GRANT SELECT, INSERT ON YourTableName TO RegularUser;
