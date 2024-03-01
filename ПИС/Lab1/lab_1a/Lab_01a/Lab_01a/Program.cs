@@ -6,8 +6,8 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-//https://localhost:7027/KNI?parmA=14&parmB=15
-app.MapGet("/KNI", (string? parmA, string? parmB) =>
+//https://localhost:7027/dba.KNI?parmA=14&parmB=15
+app.MapGet("/{path}.KNI", (string? parmA, string? parmB) =>
 {
     if (parmA != null && parmB != null && int.TryParse(parmA, out var a) && int.TryParse(parmB, out var b))
     {
@@ -17,8 +17,8 @@ app.MapGet("/KNI", (string? parmA, string? parmB) =>
     return "Error during request: invalid params";
 }); 
 
-// POST: https://localhost:7027/KNI?parmA=5&parmB=12
-app.MapPost("/KNI", (string? parmA, string? parmB) =>
+// POST: https://localhost:7027/aaa.KNI?parmA=5&parmB=12
+app.MapPost("/{path}.KNI", (string? parmA, string? parmB) =>
 {
     if (parmA != null && parmB != null && int.TryParse(parmA, out var a) && int.TryParse(parmB, out var b))
     {
@@ -28,8 +28,8 @@ app.MapPost("/KNI", (string? parmA, string? parmB) =>
     return "Error during request: invalid params";
 });
 
-// PUT: https://localhost:7027/KNI?parmA=4&parmB=13
-app.MapPut("/KNI", (string? parmA, string? parmB) =>
+// PUT: https://localhost:7027/llu.KNI?parmA=4&parmB=13
+app.MapPut("/{path}.KNI", (string? parmA, string? parmB) =>
 {
     if (parmA != null && parmB != null && int.TryParse(parmA, out var a) && int.TryParse(parmB, out var b))
     {
@@ -39,8 +39,8 @@ app.MapPut("/KNI", (string? parmA, string? parmB) =>
     return "Error during request: invalid params";
 });
 
-// POST: https://localhost:7027/KNI/sum?x=2&y=12
-app.MapPost("/KNI/sum", (int x, int y) =>
+// POST: https://localhost:7027/kni.KNI/sum?x=2&y=12
+app.MapPost("/{path}.KNI/sum", (int x, int y) =>
 {
     return x + y;
 });

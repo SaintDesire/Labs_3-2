@@ -39,10 +39,9 @@ namespace WpfApp
 
             var json = JsonSerializer.Serialize(values);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync($"https://localhost:7027/KNI/sum?x={num1}&y={num2}", content);
+            var response = await client.PostAsync($"https://localhost:7027/ddd.KNI/sum?x={num1}&y={num2}", content);
             var responseString = await response.Content.ReadAsStringAsync();
             resultTextBlock.Text =responseString;
-            MessageBox.Show(responseString);
         }
 
     }

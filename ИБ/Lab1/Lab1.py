@@ -3,15 +3,14 @@ from collections import Counter
 import math
 
 def calculate_entropy(frequencies):
-    total = sum(frequencies)
-    if total == 0:
-        return 0
-    probabilities = [freq / total for freq in frequencies]
+    total_count = sum(frequencies)
     entropy = 0
-    for prob in probabilities:
-        if prob > 0:
-            entropy += prob * math.log2(prob)
-    return -entropy
+    for freq in frequencies:
+        if freq != 0:
+            probability = freq / total_count
+            print(freq)
+            entropy -= probability * math.log2(probability)
+    return entropy
 
 def load_text_file(filename):
     with open(filename, 'r', encoding='utf-8') as file:
@@ -77,12 +76,14 @@ print('Энтропия турецкого бинарного алфавита:'
 FIO_macedonian_text = "Коrшун Никита Игоревич"
 FIO_turkish_text = "Korşun Nikita İgoreviç"
 binary_FIO = ''.join(format(ord(char), '08b') for char in "Коршун Никита Игоревич")
+print(binary_FIO)
+print(binary_FIO.count('1'))
+print(binary_FIO.count('0'))
 binary_entropy = calculate_entropy([binary_FIO.count('0'), binary_FIO.count('1')])
-
 print("Количество информации на основе македонского сообщения:", macedonian_entropy * len(FIO_macedonian_text))
 print("Количество информации на основе турецкого сообщения:", turkish_entropy * len(FIO_turkish_text))
 print("Количество информации на основе бинарного сообщения:", binary_entropy * len(binary_FIO))
-
+print(binary_entropy)
 # Задание 4
 
 error_probabilities = [0.1, 0.5, 1.0]
@@ -110,6 +111,7 @@ for p in error_probabilities:
     macedonian_efficiency_entropy = 1 - macedonian_conditional_entropy
     turkish_efficiency_entropy = 1 - turkish_conditional_entropy
     binary_efficiency_entropy = 1 - binary_conditional_entropy
+    print(binary_efficiency_entropy)
 
     macedonian_info_with_error = amount_info_with_error(macedonian_efficiency_entropy, p, 1 - p, len(FIO_macedonian_text), False)
     turkish_info_with_error = amount_info_with_error(turkish_efficiency_entropy, p, 1 - p, len(FIO_turkish_text), False)

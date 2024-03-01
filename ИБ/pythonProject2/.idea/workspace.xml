@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2af94231-3d49-44f3-b65e-3a455ca63a64" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Lab1/Lab1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/Lab1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/Отчет лаб 1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/Отчет лаб 1.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/Lab_01a/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/Lab_01a/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/Lab_01a/FileContentIndex/b5376fde-03c2-4e07-bf83-c70dbaf05d66.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/Lab_01a/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/Lab_01a/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/Lab_01a/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/Lab_01a/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/ProjectEvaluation/lab_01a.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/ProjectEvaluation/lab_01a.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/ProjectEvaluation/lab_01a.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/.vs/ProjectEvaluation/lab_01a.projects.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/bin/Debug/net7.0/Lab_01a.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/bin/Debug/net7.0/Lab_01a.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/bin/Debug/net7.0/Lab_01a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/bin/Debug/net7.0/Lab_01a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/bin/Debug/net7.0/Lab_01a.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/bin/Debug/net7.0/Lab_01a.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/Lab_01a.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/ref/Lab_01a.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/ref/Lab_01a.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/refint/Lab_01a.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/Lab_01a/Lab_01a/obj/Debug/net7.0/refint/Lab_01a.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/ProjectEvaluation/wpfapp.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/ProjectEvaluation/wpfapp.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/ProjectEvaluation/wpfapp.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/ProjectEvaluation/wpfapp.projects.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/WpfApp/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/WpfApp/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/WpfApp/FileContentIndex/c3d7ca80-a8ee-49fc-a316-d9f990915f98.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/WpfApp/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/WpfApp/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/WpfApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/.vs/WpfApp/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/bin/Debug/net7.0-windows/WpfApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/bin/Debug/net7.0-windows/WpfApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/bin/Debug/net7.0-windows/WpfApp.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/bin/Debug/net7.0-windows/WpfApp.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/bin/Debug/net7.0-windows/WpfApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/bin/Debug/net7.0-windows/WpfApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/WpfApp.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/ref/WpfApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/ref/WpfApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/refint/WpfApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab1/lab_1a/WpfApp/WpfApp/obj/Debug/net7.0-windows/refint/WpfApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/Lab1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/Lab1.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/UML.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/UML.drawio" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2d0NF7NArnaOPeoMy1c65eqKTIH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/p1v0var/Desktop/labs_3-2/ИБ/Lab1"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2af94231-3d49-44f3-b65e-3a455ca63a64" name="Changes" comment="" />
+      <created>1709140928620</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709140928620</updated>
+      <workItem from="1709140933538" duration="632000" />
+      <workItem from="1709269772104" duration="23000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pythonProject2$main.coverage" NAME="main Coverage Results" MODIFIED="1709141463212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
