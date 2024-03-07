@@ -4,15 +4,17 @@
     <title>HTML Page</title>
     <script>
         function displayBrowserInfo() {
-            alert("Browser Info: " + navigator.userAgent);
+            var browserInfo = "Browser Info: " + navigator.userAgent;
+            var infoBlock = document.getElementById("browserInfo");
+            infoBlock.innerHTML = browserInfo;
             console.log("Hello World");
         }
-        
     </script>
 </head>
 <body>
     <h1>HTML Page</h1>
     <a href="https://www.belstu.by/">БГТУ</a><br><br>
     <button onclick="displayBrowserInfo()">Display Browser Info</button>
+    <div id="browserInfo"></div>
 </body>
 </html>

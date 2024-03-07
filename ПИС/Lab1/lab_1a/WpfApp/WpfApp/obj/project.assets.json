@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\WpfApp\\WpfApp\\WpfApp.csproj",
+      "projectUniqueName": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\Lab_1a\\WpfApp\\WpfApp\\WpfApp.csproj",
       "projectName": "WpfApp",
-      "projectPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\WpfApp\\WpfApp\\WpfApp.csproj",
+      "projectPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\Lab_1a\\WpfApp\\WpfApp\\WpfApp.csproj",
       "packagesPath": "C:\\Users\\p1v0var\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\WpfApp\\WpfApp\\obj\\",
+      "outputPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\Lab_1a\\WpfApp\\WpfApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\p1v0var\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -56,6 +61,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -64,7 +87,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

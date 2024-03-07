@@ -6,18 +6,18 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-//https://localhost:7027/dba.KNI?parmA=14&parmB=15
+//https://localhost:44322/dba.KNI?parmA=14&parmB=15
 app.MapGet("/{path}.KNI", (string? parmA, string? parmB) =>
 {
     if (parmA != null && parmB != null && int.TryParse(parmA, out var a) && int.TryParse(parmB, out var b))
     {
         return $"GET-Http-KNI:ParmA ={parmA},ParmB = {parmB}";
     }
-
+    
     return "Error during request: invalid params";
 }); 
 
-// POST: https://localhost:7027/aaa.KNI?parmA=5&parmB=12
+// POST: https://localhost:44322/aaa.KNI?parmA=5&parmB=12
 app.MapPost("/{path}.KNI", (string? parmA, string? parmB) =>
 {
     if (parmA != null && parmB != null && int.TryParse(parmA, out var a) && int.TryParse(parmB, out var b))
@@ -28,7 +28,7 @@ app.MapPost("/{path}.KNI", (string? parmA, string? parmB) =>
     return "Error during request: invalid params";
 });
 
-// PUT: https://localhost:7027/llu.KNI?parmA=4&parmB=13
+// PUT: https://localhost:44322/llu.KNI?parmA=4&parmB=13
 app.MapPut("/{path}.KNI", (string? parmA, string? parmB) =>
 {
     if (parmA != null && parmB != null && int.TryParse(parmA, out var a) && int.TryParse(parmB, out var b))
@@ -39,7 +39,7 @@ app.MapPut("/{path}.KNI", (string? parmA, string? parmB) =>
     return "Error during request: invalid params";
 });
 
-// POST: https://localhost:7027/kni.KNI/sum?x=2&y=12
+// POST: https://localhost:44322/kni.KNI/sum?x=2&y=12
 app.MapPost("/{path}.KNI/sum", (int x, int y) =>
 {
     return x + y;
@@ -48,13 +48,13 @@ app.MapPost("/{path}.KNI/sum", (int x, int y) =>
 //ex5
 var htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "calculate.html");
 
-//https://localhost:7027/calculate
+//https://localhost:44322/calculate
 app.MapGet("/calculate", async (HttpContext context) =>
 {
     await context.Response.WriteAsync(File.ReadAllText(htmlFilePath));
 });
 
-//https://localhost:7027/calculate
+//https://localhost:44322/calculate
 app.MapPost("/calculate", async (HttpContext context) =>
 {
     var json = await new StreamReader(context.Request.Body).ReadToEndAsync();
@@ -65,7 +65,7 @@ app.MapPost("/calculate", async (HttpContext context) =>
 });
 
 //ex6
-//https://localhost:7027/calculate2
+//https://localhost:44322/calculate2
 var htmlFilePath2 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "calculateWithForm.html");
 app.MapGet("/calculate2", async (HttpContext context) =>
 {

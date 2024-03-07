@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\Lab_01a\\Lab_01a\\Lab_01a.csproj": {}
+    "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\Lab_1a\\Lab_01a\\Lab_01a\\Lab_01a.csproj": {}
   },
   "projects": {
-    "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\Lab_01a\\Lab_01a\\Lab_01a.csproj": {
+    "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\Lab_1a\\Lab_01a\\Lab_01a\\Lab_01a.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\Lab_01a\\Lab_01a\\Lab_01a.csproj",
+        "projectUniqueName": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\Lab_1a\\Lab_01a\\Lab_01a\\Lab_01a.csproj",
         "projectName": "Lab_01a",
-        "projectPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\Lab_01a\\Lab_01a\\Lab_01a.csproj",
+        "projectPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\Lab_1a\\Lab_01a\\Lab_01a\\Lab_01a.csproj",
         "packagesPath": "C:\\Users\\p1v0var\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\lab_1a\\Lab_01a\\Lab_01a\\obj\\",
+        "outputPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab1\\Lab_1a\\Lab_01a\\Lab_01a\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\p1v0var\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -34,11 +34,16 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -58,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

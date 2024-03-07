@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div style="margin: 50px auto; width: 100px">
+        <button id="start" onclick="start()">Пуск</button>
+        <button id="stop" onclick="stop()">Стоп</button>
+        <div id="messages"></div>
+    </div>
+    
+    <script>
+        var sockets = [];
+
+        const start = async () => {
+            var socket = new WebSocket("wss://localhost:44362/ws");
+
+            socket.onmessage = function (event) {
+                var messages = document.getElementById('messages')
+                messages.innerHTML += event.data + '<br />';
+            };
+
+            sockets.push(socket);
+        }
+
+        const stop = async () => {
+            sockets.forEach(socket => {
+                if (socket) {
+                    socket.close();
+                }
+            });
+            sockets = [];
+        }
+    </script>
+
+</body>
+</html>
