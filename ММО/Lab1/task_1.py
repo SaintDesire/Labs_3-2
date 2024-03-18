@@ -15,7 +15,7 @@ def numpy_operations():
     print(array2)
 
     # Поиск заданных значений в первом массиве (например, равных 6)
-    target_value = 6
+    target_value = 1
     matching_values = np.where(array1 == target_value)
     print("\nЗначения, равные", target_value, "в первом массиве:")
     print(array1[matching_values])

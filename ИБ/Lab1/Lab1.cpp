@@ -135,7 +135,7 @@ int main() {
 
 
     // Задание 4
-    std::vector<double> error_probabilities = { 0.1, 0.5, 1.0 };
+    std::vector<double> error_probabilities = { 0.1, 0.5, 1.0};
 
     for (double p : error_probabilities) {
         double q = 1 - p;

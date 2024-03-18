@@ -21,22 +21,6 @@ Auditorium_type.hasMany(Auditorium,{
     onDelete: 'CASCADE'
 })
 
-Auditorium.addScope('capacityRange', {
-    where: {
-        AUDITORIUM_CAPACITY: {
-            [Sequelize.Op.between]: [10, 60]
-        }
-    }
-});
-
-Auditorium.scope('capacityRange').findAll()
-    .then(auditoriums => {
-        console.log(auditoriums);
-    })
-    .catch(error => {
-        console.error(error);
-    });
-
 Faculty.addHook("beforeCreate", (instance,options)=>{
     console.log("///////////faculty beforeCreate/////////////");
 })
@@ -45,6 +29,24 @@ Faculty.addHook("afterCreate", (instance,options)=>{
     console.log("////////////faculty afterCreate///////////");
 })
 
+
+// Добавление скопа к модели Auditorium
+Auditorium.addScope('capacityRange', {
+    where: {
+        AUDITORIUM_CAPACITY: {
+            [Sequelize.Op.between]: [0, 60]
+        }
+    }
+});
+
+// Получение данных с использованием скопа
+Auditorium.scope('capacityRange').findAll()
+    .then(auditoriums => {
+        console.log(auditoriums);
+    })
+    .catch(error => {
+        console.error(error);
+    });
 
 sequelize.authenticate()
     .then(()=>{
@@ -585,6 +587,7 @@ sequelize.authenticate()
             })
     })
     .catch(err=>{console.log("error",err);});
+
 
 console.log("http://localhost:3000/api/subjects")
 console.log("http://localhost:3000/api/faculties/ИДиП/subjects")

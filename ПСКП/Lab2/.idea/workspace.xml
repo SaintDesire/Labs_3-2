@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="819b6e0d-2761-4d8e-98ef-420e0a42cb1c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/FileContentIndex/34eae4ce-8f49-4a89-92cd-354ad3f2010f.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/Browse.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/ipch/AutoPCH/7a7bcefd8247d1b1/LAB1.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/ipch/AutoPCH/7a7bcefd8247d1b1/LAB1.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/Lab1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/Lab1.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/Otvety_na_voprosy.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/macedonian.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/macedonian.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/turkish.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/turkish.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/x64/Debug/Lab1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/x64/Debug/Lab1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/x64/Debug/Lab1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/x64/Debug/Lab1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/Отчет лаб 1.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ММО/Lab1/task_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../ММО/Lab1/task_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ММО/Lab2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../ММО/Lab2/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ММО/Lab2/processed_dataset.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../ММО/Lab2/processed_dataset.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/13-01/13-01.js" beforeDir="false" afterPath="$PROJECT_DIR$/13-01/13-01.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/Lab1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/Lab1.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/UML.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/UML.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab2/MSSQL/SQLQuery1.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Лекции/Л2_Иерархии.ppt" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПиРДБИП/Лекции/Л2_Иерархии.ppt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2djcfdEgtBaAF0zZ8SyfRHKE3i8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/p1v0var/Desktop/labs_3-2/ПСКП/Lab3&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="819b6e0d-2761-4d8e-98ef-420e0a42cb1c" name="Changes" comment="" />
+      <created>1710525034770</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710525034770</updated>
+      <workItem from="1710525036998" duration="36000" />
+      <workItem from="1710525206898" duration="450000" />
+      <workItem from="1710577841074" duration="3687000" />
+      <workItem from="1710581847109" duration="194000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

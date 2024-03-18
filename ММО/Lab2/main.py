@@ -4,6 +4,7 @@ import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.preprocessing import LabelEncoder
 
 # Загрузка данных
 data = pd.read_csv('autoscout24-germany-dataset.csv')
@@ -111,7 +112,8 @@ fields_to_convert = ['make', 'fuel', 'gear', 'offerType']
 # Преобразование текстовых данных в числовой вид
 for field in fields_to_convert:
     if data[field].dtype == object:  # Проверка, что тип данных поля является строковым
-        data[field] = pd.to_numeric(data[field].str.rstrip('%'), errors='coerce')
+        label_encoder = LabelEncoder()
+        data[field] = label_encoder.fit_transform(data[field])
 
 # ============================== Задание 7 ==============================
 
