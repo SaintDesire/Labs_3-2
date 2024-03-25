@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="819b6e0d-2761-4d8e-98ef-420e0a42cb1c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/FileContentIndex/34eae4ce-8f49-4a89-92cd-354ad3f2010f.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/Browse.VC.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/ipch/AutoPCH/7a7bcefd8247d1b1/LAB1.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/.vs/Lab1/v17/ipch/AutoPCH/7a7bcefd8247d1b1/LAB1.ipch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/Lab1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/Lab1.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/Otvety_na_voprosy.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/macedonian.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/macedonian.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/turkish.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/turkish.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/x64/Debug/Lab1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/x64/Debug/Lab1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/x64/Debug/Lab1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ИБ/Lab1/x64/Debug/Lab1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ИБ/Lab1/Отчет лаб 1.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ММО/Lab1/task_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../ММО/Lab1/task_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ММО/Lab2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../ММО/Lab2/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ММО/Lab2/processed_dataset.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../ММО/Lab2/processed_dataset.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/13-01/13-01.js" beforeDir="false" afterPath="$PROJECT_DIR$/13-01/13-01.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/Lab1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/Lab1.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/UML.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПиРДБИП/Lab1/UML.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab2/MSSQL/SQLQuery1.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Лекции/Л2_Иерархии.ppt" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПиРДБИП/Лекции/Л2_Иерархии.ppt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/src/routes/auditoriums.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/src/routes/auditoriums.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Курсовой/Лист задания Коршун .doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ПиРДБИП/Lab5/MSSQL/SQLQuery2.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +47,8 @@
       <workItem from="1710525206898" duration="450000" />
       <workItem from="1710577841074" duration="3687000" />
       <workItem from="1710581847109" duration="194000" />
+      <workItem from="1711176563438" duration="43000" />
+      <workItem from="1711179097408" duration="1466000" />
     </task>
     <servers />
   </component>

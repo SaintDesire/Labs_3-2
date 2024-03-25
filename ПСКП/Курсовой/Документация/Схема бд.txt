@@ -1,0 +1,33 @@
+Users
+- UserID (primary key, autoincrement)
+- Username
+- Email
+- Password (hashed)
+- Role
+
+Games
+- GameID (primary key, autoincrement)
+- Title
+- Description
+- Genre
+- Platform
+- Release_date
+- Rating
+
+Reviews
+- ReviewID (primary key, autoincrement)
+- GameID (foreign key)
+- UserID (foreign key)
+- Rating
+- Comment
+
+Wishlist
+- WishlistID (primary key, autoincrement)
+- GameID (foreign key)
+- UserID (foreign key)
+
+Notifications
+- NotificationID (primary key, autoincrement)
+- UserID (foreign key)
+- Message
+- Timestamp

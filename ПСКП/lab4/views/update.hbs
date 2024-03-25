@@ -1,0 +1,7 @@
+<form action="/update/{{index}}" method="post">
+    <input type="text" name="name" value="{{entry.name}}">
+    <input type="text" name="phone" value="{{entry.phone}}">
+    <button type="submit">Изменить</button>
+    <button type="button" onclick="deleteEntry({{index}})">Удалить</button>
+    <a href="/">Отказаться</a>
+</form>

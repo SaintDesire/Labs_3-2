@@ -141,26 +141,41 @@ class auditoriumsAPI {
     async transaction(req, res) {
         let response;
         const db = new DB_controller();
-    
+
         try {
             await db.prismaClient.$transaction(async (tx) => {
                 // Изменяем вместимость всех аудиторий на 100 (используя инкремент)
-                await db.prismaClient.aUDITORIUM.updateMany({
+                await tx.aUDITORIUM.updateMany({
                     data: {
                         AUDITORIUM_CAPACITY: {
                             increment: 100
                         }
                     }
                 });
-                throw new Error('Rollback changes');
+
+                // Получаем список всех аудиторий после обновления
+                const auditoriums = await tx.aUDITORIUM.findMany();
+
+                // Выводим номер и вместимость каждой аудитории
+                auditoriums.forEach((auditorium) => {
+                    console.log(
+                        `Аудитория №${auditorium.AUDITORIUM}: Вместимость - ${auditorium.AUDITORIUM_CAPACITY}`
+                    );
+                });
+
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                throw 'rollback transaction';
+            }, {
+                timeout: 1000
             });
         } catch (e) {
-            console.error('Error executing transaction', e);
-            response = { error: 'Transaction failed' };
-            res.status(500).json(response);
+            console.log(e);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(e));
             return;
         }
-    
+
         res.status(200).json(response);
     }
 

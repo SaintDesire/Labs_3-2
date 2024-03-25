@@ -1,0 +1,46 @@
+<div class="center-block">
+    {{#each entries}}
+        <div class="entry">
+            <button class="entry-button" onclick="updateEntry('{{this.name}}', '{{this.phone}}')">
+                <span>{{this.name}}</span>
+                <span>{{this.phone}}</span>
+            </button>
+        </div>
+    {{/each}}
+    <button onclick="showAddForm()">Добавить</button>
+</div>
+
+<script>
+    function updateEntry(name, phone) {
+        // Отправить запрос на обновление
+        fetch(`/update?name=${name}&phone=${phone}`, { method: 'GET' })
+                .then(response => response.text())
+                .then(data => {
+                    document.body.innerHTML = data;
+                })
+                .catch(error => console.error('Ошибка:', error));
+    }
+
+    function showAddForm() {
+        // Отображение формы для добавления
+        const form = `
+            <form action="/add" method="post">
+                <input type="text" name="name" placeholder="ФИО">
+                <input type="text" name="phone" placeholder="Телефон">
+                <button type="submit">Добавить</button>
+                <button type="button" onclick="cancelAdd()">Отказаться</button>
+            </form>
+        `;
+        document.body.innerHTML = form;
+    }
+
+    function cancelAdd() {
+        // Отмена добавления, возвращение к списку
+        fetch('/', { method: 'GET' })
+                .then(response => response.text())
+                .then(data => {
+                    document.body.innerHTML = data;
+                })
+                .catch(error => console.error('Ошибка:', error));
+    }
+</script>
