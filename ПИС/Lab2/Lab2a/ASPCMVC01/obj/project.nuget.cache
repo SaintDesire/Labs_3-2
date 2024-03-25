@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "F9wubRRDHNW7gvxJBC5S5aiKshpVS/Vua4RTzNXI5Uwx/VTaP5O7xObCrpEw+S233CNZFGk6NfLQxU7jKdLzfA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab2\\Lab2a\\ASPCMVC01\\ASPCMVC01.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\p1v0var\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.16\\microsoft.windowsdesktop.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\p1v0var\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.16\\microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\p1v0var\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.16\\microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\p1v0var\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.16\\microsoft.netcore.app.host.win-x64.7.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

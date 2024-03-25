@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "NBGuWfXPLXDOUPN3DxxB3g2iwfjWkLRu99EleM/Po+M=",
+  "Source": "ASPCMVC01",
+  "BasePath": "_content/ASPCMVC01",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ASPCMVC01\\wwwroot",
+      "Source": "ASPCMVC01",
+      "ContentRoot": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab2\\Lab2a\\ASPCMVC01\\wwwroot\\",
+      "BasePath": "_content/ASPCMVC01",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab2\\Lab2a\\ASPCMVC01\\wwwroot\\index.html",
+      "SourceId": "ASPCMVC01",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab2\\Lab2a\\ASPCMVC01\\wwwroot\\",
+      "BasePath": "_content/ASPCMVC01",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}
