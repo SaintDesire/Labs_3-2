@@ -3,13 +3,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, RocCurveDisplay
 import pandas as pd
 import matplotlib
-matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-
-# Загрузка данных
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+matplotlib.use('TkAgg')
 
 data = pd.read_csv('heart.csv')
 

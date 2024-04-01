@@ -1,0 +1,46 @@
+﻿<!-- Views/Home/Index.cshtml -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>AJAX Example</h1>
+    <form id="calculationForm">
+        <label for="x">Value X:</label>
+        <input type="text" id="x" name="x"><br><br>
+        <label for="y">Value Y:</label>
+        <input type="text" id="y" name="y"><br><br>
+        <input type="submit" value="Calculate">
+    </form>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function () {
+            $('#calculationForm').submit(function (event) {
+                event.preventDefault();
+                var xValue = $('#x').val();
+                var yValue = $('#y').val();
+
+                $.ajax({
+                    url: '/values',
+                    type: 'POST',
+                    headers: {
+                        'X-Value-x': xValue,
+                        'X-Value-y': yValue
+                    },
+                    success: function (data, textStatus, xhr) {
+                        var resultValue = xhr.getResponseHeader('X-Value-z');
+                        $('#result').text('Result: ' + resultValue);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        $('#result').text('Error: ' + errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

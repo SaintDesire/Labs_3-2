@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\WEB5A.props" />
+</Project>

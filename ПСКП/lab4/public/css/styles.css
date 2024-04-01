@@ -1,0 +1,63 @@
+/* Общие стили */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+/* Стили для контейнера формы */
+.form-container {
+    width: 50%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для текстовых полей ввода */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Стили для кнопок */
+button, a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+}
+
+button[type="button"] {
+    background-color: #f44336;
+}
+
+a.cancel-button {
+    background-color: #ccc;
+}
+
+.contact {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
