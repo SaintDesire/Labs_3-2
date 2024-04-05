@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D36DF313-2548-4312-8972-1E5C83F514CC}|ASPCMVC05\\ASPCMVC05.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc05\\controllers\\parmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D36DF313-2548-4312-8972-1E5C83F514CC}|ASPCMVC05\\ASPCMVC05.csproj|solutionrelative:aspcmvc05\\controllers\\parmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5567C1A6-684D-496C-96D5-2AD33B8F0431}|ASPCMVC04\\ASPCMVC04.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5567C1A6-684D-496C-96D5-2AD33B8F0431}|ASPCMVC04\\ASPCMVC04.csproj|solutionrelative:aspcmvc04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18DC93D1-DA64-4028-9215-9977ACFD150F}|ASPCMVC03\\ASPCMVC03.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18DC93D1-DA64-4028-9215-9977ACFD150F}|ASPCMVC03\\ASPCMVC03.csproj|solutionrelative:aspcmvc03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{18DC93D1-DA64-4028-9215-9977ACFD150F}|ASPCMVC03\\ASPCMVC03.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc03\\controllers\\startcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18DC93D1-DA64-4028-9215-9977ACFD150F}|ASPCMVC03\\ASPCMVC03.csproj|solutionrelative:aspcmvc03\\controllers\\startcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37E2B0D2-880E-4230-8FBC-5B804CAF6C44}|ASPCMVC02\\ASPCMVC02.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc02\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37E2B0D2-880E-4230-8FBC-5B804CAF6C44}|ASPCMVC02\\ASPCMVC02.csproj|solutionrelative:aspcmvc02\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D36DF313-2548-4312-8972-1E5C83F514CC}|ASPCMVC05\\ASPCMVC05.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc05\\controllers\\parmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D36DF313-2548-4312-8972-1E5C83F514CC}|ASPCMVC05\\ASPCMVC05.csproj|solutionrelative:aspcmvc05\\controllers\\parmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB3752FC-30CC-4557-9470-3685686BBDFB}|ASPCMVC01\\ASPCMVC01.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc01\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BB3752FC-30CC-4557-9470-3685686BBDFB}|ASPCMVC01\\ASPCMVC01.csproj|solutionrelative:aspcmvc01\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{18DC93D1-DA64-4028-9215-9977ACFD150F}|ASPCMVC03\\ASPCMVC03.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc03\\views\\start\\one.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -21,14 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BB3752FC-30CC-4557-9470-3685686BBDFB}|ASPCMVC01\\ASPCMVC01.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB3752FC-30CC-4557-9470-3685686BBDFB}|ASPCMVC01\\ASPCMVC01.csproj|solutionrelative:aspcmvc01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18DC93D1-DA64-4028-9215-9977ACFD150F}|ASPCMVC03\\ASPCMVC03.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18DC93D1-DA64-4028-9215-9977ACFD150F}|ASPCMVC03\\ASPCMVC03.csproj|solutionrelative:aspcmvc03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5567C1A6-684D-496C-96D5-2AD33B8F0431}|ASPCMVC04\\ASPCMVC04.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5567C1A6-684D-496C-96D5-2AD33B8F0431}|ASPCMVC04\\ASPCMVC04.csproj|solutionrelative:aspcmvc04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D36DF313-2548-4312-8972-1E5C83F514CC}|ASPCMVC05\\ASPCMVC05.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u043F\u0438\u0441\\lab2\\lab2a\\aspcmvc05\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,24 +70,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC02\\Program.cs",
+              "RelativeDocumentMoniker": "ASPCMVC02\\Program.cs",
+              "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC02\\Program.cs",
+              "RelativeToolTip": "ASPCMVC02\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T06:56:43.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ParmController.cs",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC05\\Controllers\\ParmController.cs",
               "RelativeDocumentMoniker": "ASPCMVC05\\Controllers\\ParmController.cs",
               "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC05\\Controllers\\ParmController.cs",
               "RelativeToolTip": "ASPCMVC05\\Controllers\\ParmController.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAwBAAAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-25T08:40:38.149Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "One.cshtml",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC03\\Views\\Start\\One.cshtml",
               "RelativeDocumentMoniker": "ASPCMVC03\\Views\\Start\\One.cshtml",
@@ -87,38 +108,37 @@
               "RelativeToolTip": "ASPCMVC03\\Views\\Start\\One.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-25T08:39:46.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T08:39:46.18Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "StartController.cs",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC03\\Controllers\\StartController.cs",
               "RelativeDocumentMoniker": "ASPCMVC03\\Controllers\\StartController.cs",
               "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC03\\Controllers\\StartController.cs",
               "RelativeToolTip": "ASPCMVC03\\Controllers\\StartController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-25T08:38:43.673Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC03\\Program.cs",
               "RelativeDocumentMoniker": "ASPCMVC03\\Program.cs",
               "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC03\\Program.cs",
               "RelativeToolTip": "ASPCMVC03\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAhAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAxwBEAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-25T08:38:08.983Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC01\\Program.cs",
               "RelativeDocumentMoniker": "ASPCMVC01\\Program.cs",
@@ -126,12 +146,11 @@
               "RelativeToolTip": "ASPCMVC01\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-25T08:37:35.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T08:37:35.543Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC05\\appsettings.json",
               "RelativeDocumentMoniker": "ASPCMVC05\\appsettings.json",
@@ -139,12 +158,11 @@
               "RelativeToolTip": "ASPCMVC05\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-25T08:36:24.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T08:36:24.771Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC05\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "ASPCMVC05\\Properties\\launchSettings.json",
@@ -152,12 +170,11 @@
               "RelativeToolTip": "ASPCMVC05\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-25T08:33:54.637Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T08:33:54.637Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "aspmvc05.http",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC05\\aspmvc05.http",
               "RelativeDocumentMoniker": "ASPCMVC05\\aspmvc05.http",
@@ -165,12 +182,37 @@
               "RelativeToolTip": "ASPCMVC05\\aspmvc05.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-03-25T08:33:46.582Z",
+              "WhenOpened": "2024-03-25T08:33:46.582Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC04\\Program.cs",
+              "RelativeDocumentMoniker": "ASPCMVC04\\Program.cs",
+              "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC04\\Program.cs",
+              "RelativeToolTip": "ASPCMVC04\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T08:30:36.403Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC01\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "ASPCMVC01\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC01\\wwwroot\\index.html",
+              "RelativeToolTip": "ASPCMVC01\\wwwroot\\index.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-04-01T06:55:27.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC05\\Program.cs",
               "RelativeDocumentMoniker": "ASPCMVC05\\Program.cs",
@@ -178,12 +220,11 @@
               "RelativeToolTip": "ASPCMVC05\\Program.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAzwBQAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-25T08:33:45.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T08:33:45.572Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC04\\appsettings.json",
               "RelativeDocumentMoniker": "ASPCMVC04\\appsettings.json",
@@ -191,25 +232,11 @@
               "RelativeToolTip": "ASPCMVC04\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-25T08:30:44.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T08:30:44.316Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC04\\Program.cs",
-              "RelativeDocumentMoniker": "ASPCMVC04\\Program.cs",
-              "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC04\\Program.cs",
-              "RelativeToolTip": "ASPCMVC04\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-25T08:30:36.403Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC04\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "ASPCMVC04\\Properties\\launchSettings.json",
@@ -217,12 +244,11 @@
               "RelativeToolTip": "ASPCMVC04\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-25T08:34:06.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T08:34:06.029Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "aspmvc04.http",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u041F\u0418\u0421\\Lab2\\Lab2a\\ASPCMVC04\\aspmvc04.http",
               "RelativeDocumentMoniker": "ASPCMVC04\\aspmvc04.http",
@@ -230,8 +256,7 @@
               "RelativeToolTip": "ASPCMVC04\\aspmvc04.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-03-25T08:30:40.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T08:30:40.913Z"
             }
           ]
         }

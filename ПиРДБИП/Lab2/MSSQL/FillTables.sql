@@ -17,8 +17,8 @@ VALUES ('Отдел разработки', 1, '2023-01-01'),
 
 -- Заполнение таблицы Интервью
 INSERT INTO Interviews(DateTime, AnswerID, RecruiterID, Results)
-VALUES ('2024-03-20 10:00:00', 1, 1, 1),
-       ('2024-03-22 14:00:00', 2, 1, 1);
+VALUES ('2024-07-20 10:00:00', 1, 1, 1),
+       ('2024-04-22 14:00:00', 2, 2, 1);
 
 -- Заполнение таблицы Оценки
 INSERT INTO Ratings (Criteria, Score, Comments, InterviewID)

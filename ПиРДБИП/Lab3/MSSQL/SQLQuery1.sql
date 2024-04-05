@@ -87,17 +87,17 @@ END;
 -- DROP PROCEDURE dbo.MoveSubordinates;
 
 -- =========================================
-
+select * from Employees
 
 -- Примеры вызовов процедур
 EXEC DisplaySubordinates '/'; -- Передаем значение узла в качестве параметра
 
 
-EXEC AddSubordinate '/', 4; -- Передаем значение родительского узла и ID подчиненного сотрудника
+EXEC AddSubordinate '/1', 6; -- Передаем значение родительского узла и ID подчиненного сотрудника
 
-DECLARE @OldParentNode hierarchyid = '/3/';
-DECLARE @SubordinateEmployeeID INT = 4;
-DECLARE @NewParentNode hierarchyid = '/2/';
+DECLARE @OldParentNode hierarchyid = '/';
+DECLARE @SubordinateEmployeeID INT = 3;
+DECLARE @NewParentNode hierarchyid = '/3/';
 
 EXEC MoveSubordinate @OldParentNode, @SubordinateEmployeeID, @NewParentNode;
 

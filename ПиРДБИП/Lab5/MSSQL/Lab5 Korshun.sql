@@ -1,33 +1,29 @@
 -- ¬ычисление итогов работы HR помес€чно, за квартал, за полгода, за год.
-SELECT
-    Recruiters.RecruiterID,
-    Recruiters.FullName,
-    YEAR(Interviews.DateTime) AS [Year],
-    MONTH(Interviews.DateTime) AS [Month],
-    COUNT(*) AS [TotalInterviews],
-    DATEPART(QUARTER, Interviews.DateTime) AS [Quarter],
-    CASE 
-        WHEN MONTH(Interviews.DateTime) <= 6 THEN 1
-        ELSE 2
-    END AS [HalfYear]
-FROM
-    Recruiters
-INNER JOIN
-    Interviews ON Recruiters.RecruiterID = Interviews.RecruiterID
-GROUP BY
-    Recruiters.RecruiterID,
-    Recruiters.FullName,
-    YEAR(Interviews.DateTime),
-    MONTH(Interviews.DateTime),
-    DATEPART(QUARTER, Interviews.DateTime),
-    CASE 
-        WHEN MONTH(Interviews.DateTime) <= 6 THEN 1
-        ELSE 2
-    END
-ORDER BY
-    Recruiters.RecruiterID,
-    [Year],
-    [Month];
+SELECT 
+    YEAR(DateTime) AS Year,
+    MONTH(DateTime) AS Month,
+    Recruiters.FullName AS RecruiterName,
+    COUNT(InterviewID) AS InterviewsCount
+FROM 
+    Interviews
+INNER JOIN 
+    Recruiters ON Interviews.RecruiterID = Recruiters.RecruiterID
+GROUP BY 
+    YEAR(DateTime),
+    MONTH(DateTime),
+    Recruiters.FullName
+WITH ROLLUP
+HAVING 
+    (GROUPING(Recruiters.FullName) = 0) AND 
+    ((YEAR(DateTime) = YEAR(GETDATE()) AND MONTH(DateTime) BETWEEN 1 AND MONTH(GETDATE())) OR
+    (YEAR(DateTime) = YEAR(GETDATE()) AND MONTH(DateTime) BETWEEN 1 AND 6) OR
+    (YEAR(DateTime) = YEAR(GETDATE())))
+ORDER BY 
+    Year,
+    Month;
+
+
+
 
 
 -- ¬ычисление итогов работы HR за определенный период:
@@ -67,7 +63,7 @@ FROM
 -- запроса на страницы (по 20 строк на каждую страницу).
 
 -- «адаем номер страницы и размер страницы
-DECLARE @PageNumber INT = 1; -- Ќомер страницы
+DECLARE @PageNumber INT = 2; -- Ќомер страницы
 DECLARE @PageSize INT = 20; -- –азмер страницы
 
 -- ¬ычисл€ем границы дл€ страницы
