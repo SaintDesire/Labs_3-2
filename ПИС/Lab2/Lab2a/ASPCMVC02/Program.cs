@@ -19,7 +19,7 @@ namespace ASPCMVC02
                 try
                 {
                     var redirectUrl = "http://localhost:5121/index.html";
-
+                    
                     context.Response.Redirect(redirectUrl);
                 }
                 catch (Exception ex)

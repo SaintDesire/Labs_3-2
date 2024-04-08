@@ -1,6 +1,6 @@
 
 @hostname=localhost
-@port=9192
+@port=5209
 GET http://{{hostname}}:{{port}}/Start/Index
 ###
 GET http://{{hostname}}:{{port}}/Start/One
@@ -23,5 +23,5 @@ POST http://{{hostname}}:{{port}}/Start/Three
 ### HttpOnly cookie доступен только для HTTP-запросов и не может быть доступен 
 ### из JavaScript кода на странице.
 GET https://www.belstu.by
-### 
-GET http://{{hostname}}:{{port}}/Korshun/
+###
+POST http://{{hostname}}:{{port}}/Korshun
