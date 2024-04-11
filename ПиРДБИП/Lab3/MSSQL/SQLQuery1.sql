@@ -18,7 +18,10 @@ BEGIN
             EmployeeID,
             FullName,
             HierarchicalData.GetLevel() AS HierarchyLevel,
-            CAST(HierarchicalData.GetAncestor(1) AS NVARCHAR(MAX)) AS ParentNodeValue,
+            CASE 
+                WHEN HierarchicalData.GetLevel() = 0 THEN NULL 
+                ELSE CAST(HierarchicalData.GetAncestor(1) AS NVARCHAR(MAX)) 
+            END AS ParentNodeValue,
             ROW_NUMBER() OVER (ORDER BY HierarchicalData) AS NodeNumber
         FROM 
             Employees
@@ -36,42 +39,86 @@ BEGIN
 END;
 
 
+
+
+
+
 -- DROP PROCEDURE dbo.DisplaySubordinates;
 
 -- Процедура добавления подчиненного
-CREATE PROCEDURE dbo.AddSubordinate
-    @ParentNodeValue hierarchyid,
-    @SubordinateEmployeeID INT
+CREATE PROCEDURE AddSubordinate
+    @ManagerID int = NULL,
+    @EmployeeID int
 AS
 BEGIN
-    DECLARE @NewNodeValue hierarchyid;
+    DECLARE @ManagerHierarchicalData hierarchyid
 
-    -- Получаем новый идентификатор узла
-    SELECT @NewNodeValue = @ParentNodeValue.GetDescendant(
-        NULL,
-        NULL
-    );
+    -- Если @ManagerID равен NULL, создаем новый верхний элемент иерархии
+    IF @ManagerID IS NULL
+    BEGIN
+        -- Находим максимальный идентификатор среди всех сотрудников
+        SELECT @ManagerID = MAX(EmployeeID) + 1
+        FROM employees
 
-    -- Обновляем иерархические данные для заданного сотрудника
-    UPDATE dbo.Employees
-    SET HierarchicalData = @NewNodeValue
-    WHERE EmployeeID = @SubordinateEmployeeID;
-END;
+        -- Устанавливаем новый иерархический путь в корень
+        SET @ManagerHierarchicalData = '/'
+    END
+    ELSE
+    BEGIN
+        -- Если @ManagerID был указан, получаем его иерархический путь
+        SELECT @ManagerHierarchicalData = HierarchicalData
+        FROM employees
+        WHERE EmployeeID = @ManagerID
+    END
 
+    -- Генерируем новый иерархический путь для подчиненного
+    DECLARE @NewEmployeeHierarchicalData hierarchyid
+    SELECT @NewEmployeeHierarchicalData = @ManagerHierarchicalData.GetDescendant(NULL, NULL)
+
+    -- Обновляем иерархический путь подчиненного
+    UPDATE employees
+    SET HierarchicalData = @NewEmployeeHierarchicalData
+    WHERE EmployeeID = @EmployeeID
+
+    -- Обновляем иерархический путь для остальных подчиненных начальника
+    IF @ManagerID IS NOT NULL
+    BEGIN
+        UPDATE employees
+        SET HierarchicalData = @ManagerHierarchicalData.GetDescendant(HierarchicalData, NULL)
+        WHERE HierarchicalData.GetAncestor(1) = @ManagerHierarchicalData
+    END
+END
+
+
+
+
+-- DROP PROCEDURE dbo.AddSubordinate;
 
 
 
 -- Процедура перемещения подчиненных
 CREATE PROCEDURE dbo.MoveSubordinate
-    @ParentNodeValue hierarchyid,
+    @ManagerEmployeeID INT,
     @SubordinateEmployeeID INT,
-    @NewParentNodeValue hierarchyid
-AS
+    @NewManagerEmployeeID INT
+AS	
 BEGIN
-    DECLARE @NewNodeValue hierarchyid;
+    DECLARE @CurrentParentNode hierarchyid;
+    DECLARE @NewParentNode hierarchyid;
+
+    -- Получаем иерархический узел текущего родительского сотрудника
+    SELECT @CurrentParentNode = HierarchicalData
+    FROM dbo.Employees
+    WHERE EmployeeID = @ManagerEmployeeID;
+
+    -- Получаем иерархический узел нового родительского сотрудника
+    SELECT @NewParentNode = HierarchicalData
+    FROM dbo.Employees
+    WHERE EmployeeID = @NewManagerEmployeeID;
 
     -- Получаем новый идентификатор узла для нового родительского узла
-    SELECT @NewNodeValue = @NewParentNodeValue.GetDescendant(
+    DECLARE @NewNodeValue hierarchyid;
+    SELECT @NewNodeValue = @NewParentNode.GetDescendant(
         NULL,
         NULL
     );
@@ -84,20 +131,20 @@ END;
 
 
 
--- DROP PROCEDURE dbo.MoveSubordinates;
+
+-- DROP PROCEDURE dbo.MoveSubordinate;
 
 -- =========================================
 select * from Employees
 
 -- Примеры вызовов процедур
-EXEC DisplaySubordinates '/'; -- Передаем значение узла в качестве параметра
+EXEC dbo.DisplaySubordinates @NodeValue = '/';
 
 
-EXEC AddSubordinate '/1', 6; -- Передаем значение родительского узла и ID подчиненного сотрудника
 
-DECLARE @OldParentNode hierarchyid = '/';
-DECLARE @SubordinateEmployeeID INT = 3;
-DECLARE @NewParentNode hierarchyid = '/3/';
+EXEC dbo.AddSubordinate @ManagerID = 2, @EmployeeID = 7;
 
-EXEC MoveSubordinate @OldParentNode, @SubordinateEmployeeID, @NewParentNode;
+
+EXEC dbo.MoveSubordinate @ManagerEmployeeID = 1, @SubordinateEmployeeID = 3, @NewManagerEmployeeID = 2;
+
 

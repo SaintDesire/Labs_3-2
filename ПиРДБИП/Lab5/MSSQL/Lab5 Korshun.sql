@@ -3,24 +3,46 @@ SELECT
     YEAR(DateTime) AS Year,
     MONTH(DateTime) AS Month,
     Recruiters.FullName AS RecruiterName,
-    COUNT(InterviewID) AS InterviewsCount
+    COUNT(InterviewID) AS InterviewsCount,
+    CASE 
+        WHEN MONTH(DateTime) BETWEEN 1 AND 3 THEN 'Q1'
+        WHEN MONTH(DateTime) BETWEEN 4 AND 6 THEN 'Q2'
+        WHEN MONTH(DateTime) BETWEEN 7 AND 9 THEN 'Q3'
+        WHEN MONTH(DateTime) BETWEEN 10 AND 12 THEN 'Q4'
+    END AS Quarter,
+    CASE 
+        WHEN MONTH(DateTime) BETWEEN 1 AND 6 THEN 'H1'
+        WHEN MONTH(DateTime) BETWEEN 7 AND 12 THEN 'H2'
+    END AS HalfYear
 FROM 
     Interviews
 INNER JOIN 
     Recruiters ON Interviews.RecruiterID = Recruiters.RecruiterID
+WHERE 
+    (YEAR(DateTime) = YEAR(GETDATE()) AND MONTH(DateTime) BETWEEN 1 AND MONTH(GETDATE())) OR
+    (YEAR(DateTime) = YEAR(GETDATE()) AND MONTH(DateTime) BETWEEN 1 AND 6) OR
+    (YEAR(DateTime) <= YEAR(GETDATE()))
 GROUP BY 
     YEAR(DateTime),
     MONTH(DateTime),
-    Recruiters.FullName
-WITH ROLLUP
-HAVING 
-    (GROUPING(Recruiters.FullName) = 0) AND 
-    ((YEAR(DateTime) = YEAR(GETDATE()) AND MONTH(DateTime) BETWEEN 1 AND MONTH(GETDATE())) OR
-    (YEAR(DateTime) = YEAR(GETDATE()) AND MONTH(DateTime) BETWEEN 1 AND 6) OR
-    (YEAR(DateTime) = YEAR(GETDATE())))
+    Recruiters.FullName,
+    CASE 
+        WHEN MONTH(DateTime) BETWEEN 1 AND 3 THEN 'Q1'
+        WHEN MONTH(DateTime) BETWEEN 4 AND 6 THEN 'Q2'
+        WHEN MONTH(DateTime) BETWEEN 7 AND 9 THEN 'Q3'
+        WHEN MONTH(DateTime) BETWEEN 10 AND 12 THEN 'Q4'
+    END,
+    CASE 
+        WHEN MONTH(DateTime) BETWEEN 1 AND 6 THEN 'H1'
+        WHEN MONTH(DateTime) BETWEEN 7 AND 12 THEN 'H2'
+    END
 ORDER BY 
     Year,
     Month;
+
+
+
+
 
 
 
