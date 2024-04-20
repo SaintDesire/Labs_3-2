@@ -48,6 +48,19 @@ def prime_factors(n):
         factors.append(n)
     return factors
 
+def pretty_prime_factors(n):
+    factors = prime_factors(n)
+    prime_factor_str = ""
+    for factor in set(factors):
+        exponent = factors.count(factor)
+        if exponent == 1:
+            prime_factor_str += "{}".format(factor)
+        else:
+            prime_factor_str += "{}^{}".format(factor, exponent)
+        if factor != factors[-1]:
+            prime_factor_str += "×"
+    return prime_factor_str
+
 # Заданные числа m и n
 m = 540
 n = 577
@@ -69,8 +82,12 @@ print("Простые числа в интервале от 2 до 577:", find_p
 # Поиск простых чисел в интервале [540, 577]
 print("Простые числа в интервале от 540 до 577:", find_primes(540, 577))
 
-# Пример разбиения числа на произведение простых множителей
-print("Простые множители числа m ({}): {}".format(m, prime_factors_m))
-print("Простые множители числа n ({}): {}".format(n, prime_factors_n))
+# Простые множители числа m (540)
+print("Для m=540:")
+print("540 =", pretty_prime_factors(8832))
+
+# Простые множители числа n (577)
+print("Для n=577:")
+print("577 =", pretty_prime_factors(577))
 
 print("Является ли число конкатенации m и n ({}) простым: {}".format(int(str(m) + str(n)), is_prime(int(str(m) + str(n)))))

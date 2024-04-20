@@ -15,25 +15,21 @@ const users = JSON.parse(fs.readFileSync('users.json'));
 
 app.use(session);
 app.use(passport.initialize());
-passport.use(new DigestStrategy({ qop: 'auth' },
-    (username, done) => {
-        console.log(`\npassport.use: username = ${username}`);
-        let rc = null;
-        let user = users.find(u => u.username === username);
-        if (!user) {
-            rc = done(null, false);
-            console.log(`denied: username = ${username}`);
-        } else {
-            rc = done(null, user.username, user.password);
-        }
-        return rc;
-    },
-    (params, done) => {
-        console.log('params: ', params);
-        // Здесь вы можете добавить дополнительные проверки параметров, если необходимо
-        done(null, true);
+passport.use(new DigestStrategy({ qop: 'auth' }, (username, done) => {
+    console.log(`\npassport.use: username = ${username}`);
+    let rc = null;
+    let credentials = getCredentials(username);
+    if (!credentials) {
+        rc = done(null, false);
+        console.log(`denied: username = ${username}`);
     }
-));
+    else
+        rc = done(null, credentials.username, credentials.password);
+    return rc;
+}, (params, done) => {
+    console.log('params: ', params);
+    done(null, true);
+}));
 
 // Перенеправление на /login
 app.get('/', (req, res) => res.redirect('/login'));
@@ -61,11 +57,10 @@ app.get('/logout', (req, res) => {
 // Ресурс отправляет сообщение RESOURCE
 // При попытке неаутентифицированного доступа выполняет переадресацию на GET /login
 app.get('/resource', (req, res) => {
-    if (req.headers['authorization']) {
+    if (req.headers['authorization'])
         res.send('This is resource with protection');
-    } else {
+    else
         res.redirect('/login');
-    }
 });
 
 // Остальные URI => Сообщение со статусом 404
@@ -73,4 +68,12 @@ app.get('*', (req, res) => {
     res.status(404).send('Error 404: Not Found');
 });
 
-app.listen(process.env.PORT || port, () => console.log(`[OK] Server running at localhost:${port}/\n`));
+const getCredentials = username => {
+    console.log('username', username)
+    console.log('found', users.find(u => u.username.toUpperCase() == username.toUpperCase()))
+    return users.find(u => u.username.toUpperCase() == username.toUpperCase());
+}
+const verifyPassword = (firstPassword, secondPassword) => firstPassword == secondPassword;
+
+
+app.listen(process.env.PORT || port, () => console.log(`Server running at localhost:${port}\n`));

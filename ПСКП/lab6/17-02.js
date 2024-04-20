@@ -21,7 +21,7 @@ app.post('/register', async (req, res) => {
         const { username, password, info } = req.body;
         const newUser = await USERS.create({ username, password, info });
         res.status(201).json(newUser);
-    } catch (err) {ч
+    } catch (err) {
         res.status(400).json({ message: err.message });
     }
 });

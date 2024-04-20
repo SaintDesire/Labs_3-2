@@ -1,7 +1,7 @@
 <h1>Update Contact</h1>
 <div style="display: flex; flex-direction: column; text-align: center">
     {{#each contacts}}
-        <a href="/Update?id={{this.id}}" class="contact">
+        <a href="/Update?id={{this.id}}" class="contact" onclick="return false;">
         {{this.name}}: {{this.phone}}
         </a>
     {{/each}}
@@ -19,6 +19,16 @@
     function deleteContact() {
         // Получаем значение id из скрытого поля формы
         const id = document.querySelector('#idInput').value;
+        // Получаем значение имени и телефона из полей ввода
+        const name = document.querySelector('#nameInput').value;
+        const phone = document.querySelector('#phoneInput').value;
+
+        // Сравниваем значения полей ввода с данными пользователя
+        if (name !== "{{contact.name}}" || phone !== "{{contact.phone}}") {
+            alert("Невозможно удалить. Введенные данные не сопадают с исходными.");
+            return;
+        }
+
         // Отправляем запрос на удаление контакта
         fetch('/Delete', {
             method: 'POST',
@@ -38,3 +48,4 @@
                 .catch(error => console.error('Error:', error));
     }
 </script>
+
