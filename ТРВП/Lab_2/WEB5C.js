@@ -8,7 +8,7 @@ const port = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    fs.readFile(path.join(__dirname, 'WEB2C.html'), 'utf8', (err, text) => {
+    fs.readFile(path.join(__dirname, 'WEB5C.html'), 'utf8', (err, text) => {
         res.send(text);
     });
 });

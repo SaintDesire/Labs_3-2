@@ -89,7 +89,7 @@
     xhrB.setRequestHeader('X-rand-n', n);
     xhrB.send();
 
-    if (this.readyState === 4 && xhrB.status === 200) {
+    if (xhrB.status === 200) {
       const dataB = JSON.parse(xhrB.responseText);
       resultB.textContent = 'Результат задания B: ' + dataB.numbers;
     }

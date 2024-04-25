@@ -19,7 +19,7 @@ namespace ASPCMVC06
             app.UseRouting();
             app.MapRazorPages();
 
-                                                                                                                        #pragma warning disable ASP0014
+                                                                                                                                                                            #pragma warning disable ASP0014
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -40,14 +40,6 @@ namespace ASPCMVC06
                     defaults: new { controller = "TMResearch", action = "M01" },
                     constraints: new { MResearch = "MResearch", action = "M01" }
                     );
-                                endpoints.MapControllerRoute(
-                                    name: "M02",
-                                    pattern: "/{MResearch}/{action}",
-                                    defaults: new { controller = "TMResearch", action = "M02" },
-                                    constraints: new { MResearch = "MResearch", action = "M02", }
-                                    );
-
-
                 endpoints.MapControllerRoute(
                      name: "MXX",
                      pattern: "{*url}",
