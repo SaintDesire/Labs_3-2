@@ -1,51 +1,55 @@
 -- Вычисление итогов работы HR помесячно, за квартал, за полгода, за год.
 SELECT 
-    EXTRACT(YEAR FROM DateTime) AS Year,
-    EXTRACT(MONTH FROM DateTime) AS Month,
-    Recruiters.FullName AS RecruiterName,
-    COUNT(InterviewID) AS InterviewsCount,
-    CASE 
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 3 THEN 'Q1'
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 4 AND 6 THEN 'Q2'
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 7 AND 9 THEN 'Q3'
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 10 AND 12 THEN 'Q4'
-    END AS Quarter,
-    CASE 
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 6 THEN 'H1'
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 7 AND 12 THEN 'H2'
-    END AS HalfYear
-FROM 
-    Interviews
-INNER JOIN 
-    Recruiters ON Interviews.RecruiterID = Recruiters.RecruiterID
-WHERE 
-    (EXTRACT(YEAR FROM DateTime) = EXTRACT(YEAR FROM SYSDATE) AND EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND EXTRACT(MONTH FROM SYSDATE)) OR
-    (EXTRACT(YEAR FROM DateTime) = EXTRACT(YEAR FROM SYSDATE) AND EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 6) OR
-    (EXTRACT(YEAR FROM DateTime) < EXTRACT(YEAR FROM SYSDATE))
-GROUP BY 
-    EXTRACT(YEAR FROM DateTime),
-    EXTRACT(MONTH FROM DateTime),
-    Recruiters.FullName,
-    CASE 
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 3 THEN 'Q1'
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 4 AND 6 THEN 'Q2'
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 7 AND 9 THEN 'Q3'
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 10 AND 12 THEN 'Q4'
-    END,
-    CASE 
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 6 THEN 'H1'
-        WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 7 AND 12 THEN 'H2'
-    END
+    Year,
+    Month,
+    RecruiterName,
+    InterviewsCount,
+    Quarter,
+    HalfYear,
+    SUM(InterviewsCount) OVER(PARTITION BY Year, Quarter) AS QuarterTotal,
+    SUM(InterviewsCount) OVER(PARTITION BY Year, HalfYear) AS HalfYearTotal
+FROM (
+    SELECT 
+        EXTRACT(YEAR FROM DateTime) AS Year,
+        EXTRACT(MONTH FROM DateTime) AS Month,
+        Recruiters.FullName AS RecruiterName,
+        COUNT(InterviewID) AS InterviewsCount,
+        CASE 
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 3 THEN 'Q1'
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 4 AND 6 THEN 'Q2'
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 7 AND 9 THEN 'Q3'
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 10 AND 12 THEN 'Q4'
+        END AS Quarter,
+        CASE 
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 6 THEN 'H1'
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 7 AND 12 THEN 'H2'
+        END AS HalfYear
+    FROM 
+        Interviews
+    INNER JOIN 
+        Recruiters ON Interviews.RecruiterID = Recruiters.RecruiterID
+    WHERE 
+        (EXTRACT(YEAR FROM DateTime) = EXTRACT(YEAR FROM SYSDATE) AND EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND EXTRACT(MONTH FROM SYSDATE)) OR
+        (EXTRACT(YEAR FROM DateTime) = EXTRACT(YEAR FROM SYSDATE) AND EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 6) OR
+        (EXTRACT(YEAR FROM DateTime) <= EXTRACT(YEAR FROM SYSDATE))
+    GROUP BY 
+        EXTRACT(YEAR FROM DateTime),
+        EXTRACT(MONTH FROM DateTime),
+        Recruiters.FullName,
+        CASE 
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 3 THEN 'Q1'
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 4 AND 6 THEN 'Q2'
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 7 AND 9 THEN 'Q3'
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 10 AND 12 THEN 'Q4'
+        END,
+        CASE 
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 1 AND 6 THEN 'H1'
+            WHEN EXTRACT(MONTH FROM DateTime) BETWEEN 7 AND 12 THEN 'H2'
+        END
+) SubQuery
 ORDER BY 
     Year,
     Month;
-
-
-
-
-
-
-
 
 
 

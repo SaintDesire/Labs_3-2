@@ -1,106 +1,141 @@
-import numpy as np
+import math
+import sys
+import time
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
+
+def plot_frequency_histogram(text, title):
+    freq_map = {}
+    for char in text:
+        freq_map[char] = freq_map.get(char, 0) + 1
+        sorted_freq = sorted(freq_map.items(), key=lambda x: x[1], reverse=True)
+        characters = [x[0] for x in sorted_freq]
+        frequencies = [x[1] for x in sorted_freq]
+    plt.bar(characters, frequencies)
+    plt.xlabel('Characters')
+    plt.ylabel('Frequency')
+    plt.title(title)
+    plt.show()
+
+def route_encrypt(plain_text="", step_size=4):
+    """
+        Takes plain text as input and produces encrypted text as output
+        Implements the route cipher technique
+    """
+
+    idx = 0
+    matrix_representation = []
+    encrypted_text = ""
+
+    # create a matrix from plain text with width = step_size
+    for i in range(math.ceil(len(plain_text) / step_size)):
+        matrix_row = []
+        for j in range(step_size):
+            if i * step_size + j < len(plain_text):
+                matrix_row.append(plain_text[i * step_size + j])
+            else:
+                matrix_row.append("-")
+        matrix_representation.append(matrix_row)
+
+    matrix_width = len(matrix_representation[0])
+    matrix_height = len(matrix_representation)
+    allowed_depth = 0
+
+    if matrix_width < matrix_height:
+        allowed_depth = matrix_width // 2
+    else:
+        allowed_depth = matrix_height // 2
+
+    # Here "i" denotes the depth we're into the matrix
+    # Here we read the normal matrix in a spiral form starting from top right corner
+    for i in range(allowed_depth):
+        # Going down on left side
+        for j in range(i, matrix_height - i):
+            encrypted_text += matrix_representation[j][i]
+
+        # Going right on the bottom side
+        for j in range(i + 1, matrix_width - i):
+            encrypted_text += matrix_representation[matrix_height - i - 1][j]
+
+        # Going up on the right side
+        for j in range(matrix_height - i - 2, i - 1, -1):
+            encrypted_text += matrix_representation[j][matrix_width - i - 1]
+
+        # Going left on the top side
+        for j in range(matrix_width - i - 2, i, -1):
+            encrypted_text += matrix_representation[i][j]
+
+    return encrypted_text
 
 
-def read_from_file(file_name):
-    with open(file_name, 'r', encoding='utf-8') as file:
-        return file.read()
+def route_decrypt(cipher_text="", step_size=4):
+    """
+        Takes Ciphered text as input and produces plain text as output
+        Implements the route cipher technique's opposite
+    """
+
+    idx = 0
+    plain_text = ""
+
+    matrix_width = step_size
+    matrix_height = math.ceil(len(cipher_text) / step_size)
+
+    if matrix_width < matrix_height:
+        allowed_depth = matrix_width // 2
+    else:
+        allowed_depth = matrix_height // 2
+
+    plain_text_matrix = [[0 for i in range(matrix_width)] for j in range(matrix_height)]
+
+    # Here "i" denotes the depth we're into the matrix
+    # Here we are recreating the "matrix_representation" matrix present in the encrypt function
+    # We do so by performing the exact opposite of encryption step
+    # We read the encrypted text in in order and add it to the matrix in a spiral form
+    for i in range(allowed_depth):
+        # Going down on left side
+        for j in range(i, matrix_height - i):
+            plain_text_matrix[j][i] = cipher_text[idx]
+            idx += 1
+
+        # Going right on the bottom side
+        for j in range(i + 1, matrix_width - i):
+            plain_text_matrix[matrix_height - i - 1][j] = cipher_text[idx]
+            idx += 1
+
+        # Going up on the right side
+        for j in range(matrix_height - i - 2, i - 1, -1):
+            plain_text_matrix[j][matrix_width - i - 1] = cipher_text[idx]
+            idx += 1
+
+        # Going left on the top side
+        for j in range(matrix_width - i - 2, i, -1):
+            plain_text_matrix[i][j] = cipher_text[idx]
+            idx += 1
+
+    # reconstruct the message by reading the plain matrix row by row
+    for i in range(matrix_height):
+        for j in range(matrix_width):
+            plain_text += plain_text_matrix[i][j]
+
+    return plain_text
+
+with open('input.txt', 'r', encoding='utf-8') as file:
+    input = file.read()
+
+start_time = time.perf_counter()
+cipher = route_encrypt(plain_text=input)
+encryption_time = (time.perf_counter() - start_time) * 1000
+
+start_time = time.perf_counter()
+deciphered_text = route_decrypt(cipher_text=cipher)
+decryption_time = (time.perf_counter() - start_time) * 1000
+
+print("Шифр: ", cipher)
+print("Расшифрованный текст: ", deciphered_text)
+print("Время шифрования маршрутной перестановки: ", encryption_time, "мс")
+print("Время расшифрования маршрутной перестановки: ", decryption_time, "мс")
 
 
-def convert_to_two_dimensional_array(text, rows, cols):
-    padded_text = ''.join(text).ljust(rows * cols)
-    return np.array([list(padded_text[i:i + cols]) for i in range(0, len(padded_text), cols)])
-
-
-
-def encrypt_route_spiral(open_text):
-    text_length = len(open_text)
-    rows = int(text_length ** 0.5) + 1 if text_length ** 0.5 % 1 != 0 else int(text_length ** 0.5)
-    cols = rows if rows * (rows - 1) >= text_length else rows + 1
-    data = convert_to_two_dimensional_array(open_text, rows, cols)
-    result = []
-
-    top = 0
-    bottom = rows - 1
-    left = 0
-    right = cols - 1
-    direction = 0
-
-    while top <= bottom and left <= right:
-        if direction == 0:
-            for i in range(left, right + 1):
-                result.append(data[top, i])
-            top += 1
-        elif direction == 1:
-            for i in range(top, bottom + 1):
-                result.append(data[i, right])
-            right -= 1
-        elif direction == 2:
-            for i in range(right, left - 1, -1):
-                result.append(data[bottom, i])
-            bottom -= 1
-        elif direction == 3:
-            for i in range(bottom, top - 1, -1):
-                result.append(data[i, left])
-            left += 1
-        direction = (direction + 1) % 4
-
-    return result
-
-
-def decrypt_route_spiral(encrypted_text):
-    text_length = len(encrypted_text)
-    rows = int(text_length ** 0.5) + 1 if text_length ** 0.5 % 1 != 0 else int(text_length ** 0.5)
-    cols = rows if rows * (rows - 1) >= text_length else rows + 1
-    result = [[''] * cols for _ in range(rows)]
-
-    top = 0
-    bottom = rows - 1
-    left = 0
-    right = cols - 1
-    direction = 0
-    index = 0
-
-    while top <= bottom and left <= right:
-        if direction == 0:
-            for i in range(left, right + 1):
-                if index < text_length:
-                    result[top][i] = encrypted_text[index]
-                    index += 1
-            top += 1
-        elif direction == 1:
-            for i in range(top, bottom + 1):
-                if index < text_length:
-                    result[i][right] = encrypted_text[index]
-                    index += 1
-            right -= 1
-        elif direction == 2:
-            for i in range(right, left - 1, -1):
-                if index < text_length:
-                    result[bottom][i] = encrypted_text[index]
-                    index += 1
-            bottom -= 1
-        elif direction == 3:
-            for i in range(bottom, top - 1, -1):
-                if index < text_length:
-                    result[i][left] = encrypted_text[index]
-                    index += 1
-            left += 1
-        direction = (direction + 3) % 4  # Reverse direction
-
-    decrypted_text = ''
-    for row in result:
-        decrypted_text += ''.join(row)
-
-    return decrypted_text.strip()
-
-
-
-
-
-
-input_text = read_from_file('input.txt')
-encrypted_text = encrypt_route_spiral(input_text)
-print('Зашифрованный текст: ',''.join(encrypted_text))
-
-decrypted_text = decrypt_route_spiral(encrypted_text)
-print('Расшифрованный текст: ', ''.join(decrypted_text))
+plot_frequency_histogram(cipher, "Частоты появления символов исходного сообщения")
+plot_frequency_histogram(deciphered_text, "Частоты появления символов зашифрованного сообщения (маршрутная перестановка)")
