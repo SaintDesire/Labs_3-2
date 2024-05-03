@@ -1,141 +1,105 @@
-<html>
-<body>
-<form action="/" method="get">
-  <label htmlFor="gameTitle">Game Title:</label>
-  <input type="text" id="gameTitle" name="gameTitle" required>
-  <button type="submit">Search</button>
-</form>
-<div id="gameInfo" style="display: flex; flex-wrap: wrap;"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
 
-<div id="gameInfoList" style="display: flex; flex-wrap: wrap;"></div>
+        #gameTitle {
+            font-weight: bold;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #gameImages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <image class="main-img"></image>
+    <h1 id="gameTitle"></h1>
+    <div class="game-info">
+        <h3>Дата выпуска: <span id="releaseDate"></span></h3>
+        <h3>Жанр: <span id="genre"></span></h3>
+        <h3>Разработчик: <span id="developer"></span></h3>
+    </div>
+    <div id="gameImages"></div>
+
+</div>
 
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    fetch('/gamesList')
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const gameTitle = decodeURIComponent(window.location.search.split('=')[1]);
+
+        const gameTitleElement = document.getElementById('gameTitle');
+        const releaseDateElement = document.getElementById('releaseDate');
+        const genreElement = document.getElementById('genre');
+        const developerElement = document.getElementById('developer');
+        const gameImagesElement = document.getElementById('gameImages');
+        const mainImageElement = document.querySelector('.main-img');
+
+        gameTitleElement.textContent = gameTitle;
+
+        fetch('/game', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ gameTitle: gameTitle })
+        })
             .then(response => response.json())
             .then(data => {
-              if (data.error) {
-                console.error('Error:', data.error);
-              } else {
-                const gameInfo = document.getElementById('gameInfo');
-                data.games.forEach(game => {
-                  const gameElement = document.createElement('div');
-                  const gameTitle = document.createElement('p');
+                if (data.error) {
+                    console.error('Error:', data.error);
+                } else {
+                    const images = data.images;
+                    const releaseDate = data.release_date;
+                    const genre = data.genre;
+                    const developer = data.developer;
 
-                  gameTitle.textContent = game.gameTitle;
+                    releaseDateElement.textContent = releaseDate;
+                    genreElement.textContent = genre;
+                    developerElement.textContent = developer;
+                    console.log(releaseDate)
+                    console.log(genre)
 
-                  gameElement.classList.add('game');
-                  gameElement.style.border = '1px solid black';
-                  gameElement.style.padding = '15px';
-                  gameElement.appendChild(gameTitle);
+                    images.forEach((imageUrl, index) => {
+                        if (index !== images.length - 1) {
+                            const imageElement = document.createElement('img');
+                            imageElement.src = imageUrl;
+                            imageElement.alt = 'Game Image';
+                            imageElement.style.width = '200px';
+                            imageElement.style.height = '200px';
+                            imageElement.style.margin = '10px';
+                            imageElement.style.border = '1px solid black';
+                            gameImagesElement.appendChild(imageElement);
+                        }
+                    });
 
-                  const lastImage = game.image;
-                  if (lastImage) {
-                    const gameImage = document.createElement('img');
-                    gameImage.src = lastImage;
-                    gameImage.alt = 'Game Image';
-                    gameImage.style.width = '200px';
-                    gameImage.style.height = '200px';
-                    gameImage.style.margin = '10px';
-                    gameImage.style.border = '1px solid black';
-                    gameElement.appendChild(gameImage);
-                  }
-
-                  gameInfo.appendChild(gameElement);
-                });
-              }
+                    mainImageElement.src = images[images.length - 1];
+                }
             })
             .catch(error => {
-              console.error('Error:', error);
-            });
-  });
-  const form = document.querySelector('form');
-  const gameTitleInput = document.querySelector('#gameTitle');
-  const gameInfoDiv = document.querySelector('#gameInfo');
-
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const gameTitle = gameTitleInput.value;
-
-    fetch('/game?gameTitle=' + encodeURIComponent(gameTitle))
-            .then((response) => response.json())
-            .then((data) => {
-              gameInfoDiv.innerHTML = '';
-              if (data.error) {
-                gameInfoDiv.textContent = data.error;
-              } else {
-                const images = data.images;
-                images.forEach((imageUrl, index) => {
-                  const imageElement = document.createElement('img');
-                  imageElement.src = imageUrl;
-                  imageElement.style.width = '200px';
-                  imageElement.style.height = '200px';
-                  imageElement.style.margin = '10px';
-                  gameInfoDiv.appendChild(imageElement);
-                });
-              }
-            })
-            .catch((error) => {
-              gameInfoDiv.textContent = 'An error occurred';
-              console.error('Error:', error);
-            });
-  });
-
-  gameTitleInput.addEventListener('input', (event) => {
-    const input = event.target;
-    const inputValue = input.value;
-
-    if (inputValue.length >= 3) {
-      fetch('/search?gameTitle=' + encodeURIComponent(inputValue))
-              .then((response) => response.json())
-              .then((data) => {
-                const searchResults = data.games;
-                const suggestionsDiv = document.createElement('div');
-                suggestionsDiv.id = 'suggestionsDiv';
-                suggestionsDiv.style.display = 'flex';
-                suggestionsDiv.style.flexWrap = 'wrap';
-                suggestionsDiv.style.marginTop = '10px';
-                searchResults.forEach((game) => {
-                  const suggestion = document.createElement('div');
-                  suggestion.textContent = game.title;
-                  suggestion.classList.add('suggestion');
-                  suggestion.style.padding = '5px';
-                  suggestion.style.margin = '5px';
-                  suggestion.style.border = '1px solid black';
-                  suggestion.addEventListener('click', () => {
-                    gameTitleInput.value = game.title;
-                    suggestionsDiv.remove();
-                    form.dispatchEvent(new Event('submit'));
-                  });
-                  suggestionsDiv.appendChild(suggestion);
-                });
-
-                const existingSuggestionsDiv = document.querySelector('#suggestionsDiv');
-                if (existingSuggestionsDiv) {
-                  existingSuggestionsDiv.replaceWith(suggestionsDiv);
-                } else {
-                  form.appendChild(suggestionsDiv);
-                }
-              })
-              .catch((error) => {
                 console.error('Error:', error);
-              });
-    } else {
-      const suggestionsDiv = document.querySelector('#suggestionsDiv');
-      if (suggestionsDiv) {
-        suggestionsDiv.remove();
-      }
-    }
-  });
-
-  document.addEventListener('click', (event) => {
-    const suggestionsDiv = document.querySelector('#suggestionsDiv');
-    if (event.target !== gameTitleInput && event.target !== suggestionsDiv) {
-      if (suggestionsDiv) {
-        suggestionsDiv.remove();
-      }
-    }
-  });
+            });
+    });
 </script>
 </body>
 </html>

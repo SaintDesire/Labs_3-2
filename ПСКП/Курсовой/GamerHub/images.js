@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 // Функция для преобразования названия игры в формат URL
 function formatGameTitle(gameTitle) {
-    return gameTitle.toLowerCase().replace(/ /g, '-');
+    return gameTitle.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s/g, "-").toLowerCase();
 }
 
 // Функция для получения картинок игры

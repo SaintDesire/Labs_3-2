@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 # ----------------- Enigma Settings -----------------
 rotors = ("BETA", "GAMMA", "V")
 reflector = "B"
-ringSettings = "ABC"
-ringPositions = "DEF"
+ringSettings = "LFV"
+ringPositions = "LFV"
 plugboard = "AY BR CU DH EQ FS GL IP JX KN MO TZ VW"
 rotorStep = {"I": 0, "II": 2, "III": 2}
 
@@ -198,10 +198,10 @@ def plot_frequency_histogram(text, title):
 
 
 print("  ##### Enigma Encoder #####")
-#plaintext = input("Enter text to encode or decode:\n")
+plaintext = input("Enter text to encode or decode:\n")
 
-with open('input.txt', 'r', encoding='utf-8') as file:
-    plaintext = file.read()
+# with open('input.txt', 'r', encoding='utf-8') as file:
+#     plaintext = file.read()
 
 print("\nOriginal text: \n " + plaintext)
 plot_frequency_histogram(plaintext, "Frequency Histogram of Original Text")

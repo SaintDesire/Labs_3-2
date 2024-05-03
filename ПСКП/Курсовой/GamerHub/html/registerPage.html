@@ -42,18 +42,42 @@
         }
 
         button {
+            transition: .5s;
             display: block;
             width: 100%;
             padding: 10px;
             background-color: #4caf50;
             color: #fff;
-            border: none;
+            border: 1px solid white;
             border-radius: 5px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #45a049;
+            transition: .5s;
+            background: white;
+            color: #4caf50;
+            border: 1px solid #4caf50;
+        }
+
+        a {
+            margin: 15px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .sign-button {
+            transition: .5s;
+            background: white;
+            color: #4caf50;
+            border: 1px solid #4caf50;
+        }
+
+        .sign-button:hover {
+            transition: .5s;
+            background: #4caf50;
+            color: white;
+            border: 1px solid white;
         }
     </style>
 </head>
@@ -79,6 +103,7 @@
         </div>
         <button type="submit">Register</button>
     </form>
+    <a href="register"><button class="sign-button">Sign In</button></a>
 </div>
 </body>
 </html>
