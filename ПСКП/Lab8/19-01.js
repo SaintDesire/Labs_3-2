@@ -7,7 +7,7 @@ const authRouter = require('./routes/authRouter');
 const apiRouter = require('./routes/index');
 const sequelize = require('./db');
 
-const accessKey = 'dimas';
+const accessKey = 'korshun';
 
 const app = express();
 const port = 3000;
@@ -34,14 +34,12 @@ app.use((req, res, next) => {
                     case 'admin':
                         can(['read', 'update', 'delete'], ['Repos', 'Commits']);
                         can('read', ['Repos', 'Commits', 'UsersCASL', 'ability', 'all']);
-                        can('manage', 'all');
                         break;
 
                     case 'user':
                         can(['read', 'create', 'update'], ['Repos', 'Commits'], {
                             authorId: req.payload.id,
                         });
-                        //can('read', 'UsersCASL', { id: req.payload.id }); -- для просмотра всех ползователей
                         break;
 
                     case 'guest':

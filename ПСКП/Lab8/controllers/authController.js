@@ -1,8 +1,8 @@
 const { UsersCASL } = require('../models');
 const jwt = require('jsonwebtoken');
 
-const refreshKey = 'dimas';
-const accessKey = 'dimas';
+const refreshKey = 'korshun';
+const accessKey = 'korshun';
 
 let oldrefreshKeyCount = 0;
 

@@ -13,15 +13,20 @@ class UserController {
             res.status(403).send('You dont have permissions to view all users, or your token has expired.');
         }
     }
-    
+
 
     async getOneUser(req, res) {
         try {
             let userId = +req.payload.id;
 
             if (req.payload.role === 'admin') {
-                userId = +req.query.id;
-            } 
+                if (typeof req.query.id === 'string') {
+                    userId = parseInt(req.query.id);
+                }
+                if (isNaN(userId)) {
+                    userId = null;
+                }
+            }
             const user = await UsersCASL.findOne({
                 where: {
                     id: userId,
