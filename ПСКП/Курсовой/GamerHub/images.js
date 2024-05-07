@@ -1,6 +1,5 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-
 // Функция для преобразования названия игры в формат URL
 function formatGameTitle(gameTitle) {
     return gameTitle.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s/g, "-").toLowerCase();
@@ -10,6 +9,7 @@ function formatGameTitle(gameTitle) {
 async function getGameImages(gameTitle) {
     const formattedTitle = formatGameTitle(gameTitle);
     const url = `https://www.gamespot.com/games/${formattedTitle}/`;
+    console.log(url)
 
     try {
         const response = await axios.get(url);
@@ -29,7 +29,14 @@ async function getGameImages(gameTitle) {
         }
 
         if (images.length === 0) {
-            throw new Error('No images found');
+            const words = gameTitle.split(' ');
+            console.log(words)
+            if (words.length > 1) {
+                const newTitle = words.slice(0, -1).join(' ');
+                return await getGameImages(newTitle);
+            } else {
+                throw new Error('No images found');
+            }
         }
 
         return images;
@@ -38,7 +45,6 @@ async function getGameImages(gameTitle) {
         return [];
     }
 }
-
 
 
 module.exports = {

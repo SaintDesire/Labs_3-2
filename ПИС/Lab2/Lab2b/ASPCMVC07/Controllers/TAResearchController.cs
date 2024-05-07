@@ -3,41 +3,32 @@
 namespace ASPCMVC07.Controllers
 {
     [Route("it")]
-    public class TAResearchController : Controller
+    public class TAResearch : Controller
     {
-        [HttpGet("n/{n:regex(^\\d+$)}/{str}")]
-        public string M04(int n, string str)
-        {
-            return $"GET:M04:/{n}/{str}";
-        }
-
         [HttpGet]
-        [HttpPost]
+        [Route("{n:int}/{str}", Order = 1)]
+        public string M04(int n, string str) => $"GET:M04: /{n}/{str}";
+
+
+        [AcceptVerbs("GET", "POST")]
         [Route("{b:bool}/{letters:alpha}")]
-        public async Task<string> M05(bool b, string letters)
-        {
-            return $"{Request.Method}:M05:/{b}/{letters}";
-        }
+        public string M05(bool b, string letters) => $"{HttpContext.Request.Method}:M05: /{b}/{letters}";
 
-        [HttpGet]
-        [HttpDelete]
-        [Route("{f:float}/{str:minlength(2):maxlength(5)}")]
-        public async Task<string> M06(float f, string str)
-        {
-            return $"{Request.Method}:M06:/{f}/{str}";
-        }
+
+        [AcceptVerbs("GET", "DELETE")]
+        [Route("{f:float}/{str:length(2,5)}", Order = 2)]
+        public string M06(float f, string str) => $"{HttpContext.Request.Method}:M06: /{f}/{str}";
+
+
         [HttpPut]
-        [Route("{letters:alpha:minlength(3):maxlength(4)}/{n:int:range(100,200)}")]
-        public async Task<string> M07(int? n, string? letters)
-        {
-            return $"{Request.Method}:M07:/{letters}/{n}";
-        }
+        [Route("{letters:alpha:length(3,4)}/{n:int:range(100,200)}")]
+        public string M07(string letters, int n) => $"PUT:M07: /{letters}/{n}";
+
+
         [HttpPost]
-        [Route("{mail:regex(^\\S+@\\S+\\.\\S+$)}")]
-        public async Task<string> M08(string? mail)
-        {
-            return $"{Request.Method}:M08:/{mail}";
-        }
+        [Route("{mail:regex(^\\w+@\\w+\\.\\w+)}")]
+        public string M08(string mail) => $"POST:M08/{mail}";
+
 
     }
 }

@@ -4,27 +4,9 @@ namespace ASPCMVC06.Controllers
 {
     public class TMResearchController : Controller
     {
-
-        public ActionResult M01(string id)
-        {
-            return Content("GET:M01 - " + id);
-        }
-
-        public ActionResult M02(string value)
-        {
-            return Content("GET:M02 - " + value);
-        }
-
-
-        public ActionResult M03(string value)
-        {
-            return Content("GET:M03");
-        }
-
-
-        public ActionResult MXX()
-        {
-            return Content("GET:MXX");
-        }
+        public string M01() => "GET:M01";
+        public string M02() => "GET:M02";
+        public string M03() => "GET:M03";
+        public string MXX() => "GET:MXX";
     }
 }

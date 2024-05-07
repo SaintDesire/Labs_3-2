@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  odoo:
+    image: odoo:16.0
+    restart: always
+    depends_on:
+    - postgres
+    environment:
+    - HOST=postgres
+    - USER=odoo
+    - PASSWORD=odoo
+    volumes:
+      - odoo_data:/var/lib/odoo
+    ports:
+    - 8069:8069
+    networks:
+    - odoo_net
+
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    volumes:
+    - odoo_pgdb:/var/lib/postgresql/data
+    environment:
+    - POSTGRES_DB=postgres
+    - POSTGRES_PASSWORD=odoo
+    - POSTGRES_USER=odoo
+    networks:
+    - odoo_net
+
+volumes:
+  odoo_pgdb:
+  odoo_data:
+
+networks:
+  odoo_net:

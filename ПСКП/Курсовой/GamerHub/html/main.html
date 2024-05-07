@@ -91,10 +91,11 @@
   </style>
 </head>
 <body>
-    <form action="/" method="get">
+    <form id="form" action="/" method="get">
       <label for="gameTitle">Game Title:</label>
       <input type="text" id="gameTitle" name="gameTitle" required autocomplete="off">
       <button type="submit">Search</button>
+      <div id="suggestionsDiv"></div>
     </form>
 <div class="main-container">
   <div class="main">
@@ -106,126 +107,8 @@
   <div id="categories"></div>
 </div>
 
+<!--Поиск игры-->
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    fetch('/gamesList')
-            .then(response => response.json())
-            .then(data => {
-              if (data.error) {
-                console.error('Error:', data.error);
-              } else {
-                const gameInfo = document.getElementById('gameInfo');
-                data.games.forEach(game => {
-                  const gameElement = document.createElement('div');
-                  const gameTitle = document.createElement('p');
-                  const gameLink = document.createElement('a');
-
-                  gameTitle.textContent = game.gameTitle;
-                  gameLink.href = '/game?gameTitle=' + encodeURIComponent(game.gameTitle);
-                  gameLink.classList.add('game-link');
-                  gameLink.appendChild(gameTitle);
-
-                  gameElement.classList.add('game');
-                  gameElement.style.border = '1px solid black';
-                  gameElement.style.padding = '15px';
-                  gameElement.appendChild(gameLink);
-
-                  const lastImage = game.image;
-                  if (lastImage) {
-                    const gameImage = document.createElement('img');
-                    gameImage.src = lastImage;
-                    gameImage.alt = 'Game Image';
-                    gameImage.style.width = '200px';
-                    gameImage.style.height = '200px';
-                    gameImage.style.margin = '10px';
-                    gameImage.style.border = '1px solid black';
-                    gameElement.appendChild(gameImage);
-                  }
-
-                  gameInfo.appendChild(gameElement);
-                });
-              }
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-  });
-
-  const categoriesDict = new Set(['Action', 'Role-playing', 'Strategy', 'Driving', 'Sports',
-                                  'Arcade', 'Shooter', '2D', '3D'])
-  const container = document.getElementById('categories');
-
-  categoriesDict.forEach(category => {
-    const button = document.createElement('button');
-    button.textContent = category;
-    button.style.marginBottom = '5px';
-    container.appendChild(button);
-    button.addEventListener('click', handleCategoryClick);
-  });
-
-
-  // Обработчик нажатия на кнопку категории
-  function handleCategoryClick(event) {
-    const genre = event.target.textContent; // Получаем текстовое значение кнопки
-    console.log(genre)
-    // Отправляем POST запрос на /gamesList с категорией в теле
-    fetch('/gamesList', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ genre }),
-    })
-            .then(response => response.json())
-            .then(data => {
-              if (data.error) {
-                console.error('Error:', data.error);
-              } else {
-                const gameInfoList = document.getElementById('gameInfo');
-
-                while (gameInfoList.firstChild) {
-                  gameInfoList.removeChild(gameInfoList.firstChild);
-                }
-
-                // Вставляем полученные игры
-                data.games.forEach(game => {
-                  const gameElement = document.createElement('div');
-                  const gameTitle = document.createElement('p');
-                  const gameLink = document.createElement('a');
-
-                  gameTitle.textContent = game.gameTitle;
-                  gameLink.href = '/game?gameTitle=' + encodeURIComponent(game.gameTitle);
-                  gameLink.classList.add('game-link');
-                  gameLink.appendChild(gameTitle);
-
-                  gameElement.classList.add('game');
-                  gameElement.style.border = '1px solid black';
-                  gameElement.style.padding = '15px';
-                  gameElement.appendChild(gameLink);
-
-                  const lastImage = game.image;
-                  if (lastImage) {
-                    const gameImage = document.createElement('img');
-                    gameImage.src = lastImage;
-                    gameImage.alt = 'Game Image';
-                    gameImage.style.width = '200px';
-                    gameImage.style.height = '200px';
-                    gameImage.style.margin = '10px';
-                    gameImage.style.border = '1px solid black';
-                    gameElement.appendChild(gameImage);
-                  }
-
-                  gameInfoList.appendChild(gameElement);
-                });
-              }
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-  };
-
-
-  categoryButton.addEventListener('click', handleCategoryClick);
 
   const form = document.querySelector('form');
   const gameTitleInput = document.querySelector('#gameTitle');
@@ -263,7 +146,7 @@
     const input = event.target;
     const inputValue = input.value;
 
-    if (inputValue.length >= 3) {
+    if (inputValue.length >= 2) {
       fetch('/search?gameTitle=' + encodeURIComponent(inputValue))
               .then((response) => response.json())
               .then((data) => {
@@ -325,6 +208,162 @@
       }
     }
   });
+
+</script>
+<!--Загрузка игр-->
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    fetch('/gamesList')
+            .then(response => response.json())
+            .then(data => {
+              if (data.error) {
+                console.error('Error:', data.error);
+              } else {
+                const gameInfo = document.getElementById('gameInfo');
+                data.games.forEach(game => {
+                  const gameLink = document.createElement('a');
+                  gameLink.href = '/game?gameTitle=' + encodeURIComponent(game.gameTitle);
+                  gameLink.classList.add('game-link');
+
+                  const gameElement = document.createElement('div');
+                  gameElement.classList.add('game');
+                  gameElement.style.width = '250px';
+                  gameElement.style.border = '1px solid black';
+                  gameElement.style.padding = '15px';
+                  gameElement.style.textAlign = 'center';
+
+                  const gameTitle = document.createElement('p');
+                  gameTitle.textContent = game.gameTitle;
+                  gameElement.appendChild(gameTitle);
+
+
+                  const lastImage = game.image;
+                  if (lastImage) {
+                    const gameImage = document.createElement('img');
+                    gameImage.src = lastImage;
+                    gameImage.alt = 'Game Image';
+                    gameImage.style.width = '200px';
+                    gameImage.style.height = '200px';
+                    gameImage.style.margin = '10px';
+                    gameImage.style.border = '1px solid black';
+                    gameElement.appendChild(gameImage);
+                  } else {
+                    const noImageText = document.createElement('span');
+                    noImageText.textContent = 'No image';
+                    noImageText.style.display = 'inline-block';
+                    noImageText.style.transform = 'rotate(45deg)';
+                    noImageText.style.margin = '10px';
+                    noImageText.style.border = '1px solid black';
+                    noImageText.style.padding = '5px';
+                    gameElement.appendChild(noImageText);
+                  }
+
+                  gameLink.appendChild(gameElement);
+                  gameInfo.appendChild(gameLink);
+                });
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+  });
+</script>
+
+<!--Категории-->
+<script>
+
+  const categoriesDict = new Set(['Action', 'Role-playing', 'Strategy', 'Driving', 'Sports',
+    'Arcade', 'Shooter', '2D', '3D'])
+  const container = document.getElementById('categories');
+
+  categoriesDict.forEach(category => {
+    const button = document.createElement('button');
+    button.textContent = category;
+    button.style.marginBottom = '5px';
+    container.appendChild(button);
+    button.addEventListener('click', handleCategoryClick);
+  });
+
+
+  // Обработчик нажатия на кнопку категории
+  function handleCategoryClick(event) {
+    const genre = event.target.textContent; // Получаем текстовое значение кнопки
+    console.log(genre)
+    // Отправляем POST запрос на /gamesList с категорией в теле
+    fetch('/gamesList', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ genre }),
+    })
+            .then(response => response.json())
+            .then(data => {
+              if (data.error) {
+                console.error('Error:', data.error);
+              } else {
+                const gameInfoList = document.getElementById('gameInfo');
+
+                while (gameInfoList.firstChild) {
+                  gameInfoList.removeChild(gameInfoList.firstChild);
+                }
+
+                // Вставляем полученные игры
+                data.games.forEach(game => {
+                  const gameElement = document.createElement('div');
+                  const gameTitle = document.createElement('p');
+                  const gameLink = document.createElement('a');
+
+                  gameTitle.textContent = game.gameTitle;
+                  gameLink.href = '/game?gameTitle=' + encodeURIComponent(game.gameTitle);
+                  gameLink.classList.add('game-link');
+
+                  gameElement.classList.add('game');
+                  gameElement.style.width = '250px';
+                  gameElement.style.border = '1px solid black';
+                  gameElement.style.padding = '15px';
+                  gameElement.style.textAlign = 'center';
+                  gameElement.appendChild(gameTitle)
+
+                  const lastImage = game.image;
+                  if (lastImage) {
+                    const gameImage = document.createElement('img');
+                    gameImage.src = lastImage;
+                    gameImage.alt = 'Game Image';
+                    gameImage.style.width = '200px';
+                    gameImage.style.height = '200px';
+                    gameImage.style.margin = '10px';
+                    gameImage.style.border = '1px solid black';
+                    gameElement.appendChild(gameImage);
+                  } else {
+                    const noImageText = document.createElement('span');
+                    noImageText.textContent = 'No image';
+                    noImageText.style.display = 'flex';
+                    noImageText.style.justifyContent = 'center';
+                    noImageText.style.alignItems = 'center';
+                    noImageText.style.width = '200px';
+                    noImageText.style.height = '200px';
+                    noImageText.style.margin = '10px';
+                    noImageText.style.border = '1px solid black';
+                    noImageText.style.padding = '5px';
+                    noImageText.style.fontFamily = 'Arial, sans-serif';
+                    noImageText.style.fontSize = '40px';
+                    gameElement.appendChild(noImageText);
+                  }
+
+                  gameLink.appendChild(gameElement);
+                  gameInfo.appendChild(gameLink);
+                });
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+  };
+
+  categoryButton.addEventListener('click', handleCategoryClick);
+
+
 </script>
 </body>
 </html>

@@ -3,19 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="780eb2e6-6f07-4f84-b63b-d7dfa72381cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../../ИБ/Lab6/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ИБ/Lab6/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ИБ/Отчеты/Отчет лаб 6.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ИБ/Отчеты/Отчет лаб 6.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ИБ/Отчеты/Отчет лаб 7.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ИБ/Отчеты/Отчет лаб 7.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/FileContentIndex/8ba3ac6c-ff8f-4950-869a-429ae113c5fd.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/DocumentLayout.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.projects.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/ASPCMVC03/aspmvc03.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/ASPCMVC03/aspmvc03.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/DocumentLayout.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.projects.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/loginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/loginPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/registerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/registerPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images.js" beforeDir="false" afterPath="$PROJECT_DIR$/images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПиРДБИП/Lab8/ORACLE/SQL1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПиРДБИП/Lab8/ORACLE/SQL1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Условия/Лабораторная_работа_19_AUTHOR_CASL/~$бораторная_работа_19.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +93,8 @@
       <workItem from="1714667279822" duration="37000" />
       <workItem from="1714712666859" duration="4574000" />
       <workItem from="1714733379811" duration="5645000" />
+      <workItem from="1714816280604" duration="3470000" />
+      <workItem from="1715024608094" duration="15000" />
     </task>
     <servers />
   </component>

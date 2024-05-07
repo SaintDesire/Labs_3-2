@@ -16,12 +16,7 @@ POST http://{{hostname}}:{{port}}/Start/One
 POST http://{{hostname}}:{{port}}/Start/Two
 ###
 POST http://{{hostname}}:{{port}}/Start/Three
-### Set-Cookie  expires После этой даты браузер перестанет отправлять этот cookie 
-### на сервер.
-
-### path=/ Это путь на сервере, для которого будет доступен этот cookie. Все страницы
-### HttpOnly cookie доступен только для HTTP-запросов и не может быть доступен 
-### из JavaScript кода на странице.
+###
 GET https://www.belstu.by
 ###
 POST http://{{hostname}}:{{port}}/Korshun

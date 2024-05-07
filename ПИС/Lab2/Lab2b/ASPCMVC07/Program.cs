@@ -1,22 +1,18 @@
-internal class Program
-{
-    private static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
-        builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
+var app = builder.Build();
 
+app.UseStaticFiles();
 
-        var app = builder.Build();
+app.UseRouting();
 
-        app.UseHttpsRedirection();
+app.UseAuthorization();
 
-        app.UseAuthorization();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action}");
 
-        app.MapControllers();
-
-        app.Run();
-    }
-}
+app.Run();
