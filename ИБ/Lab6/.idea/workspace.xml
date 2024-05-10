@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e08c544e-90a3-4484-84d8-2a1037b06165" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Lab6.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/FileContentIndex/8ba3ac6c-ff8f-4950-869a-429ae113c5fd.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/DocumentLayout.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.metadata.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.projects.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/ASPCMVC03/aspmvc03.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2a/ASPCMVC03/aspmvc03.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/DocumentLayout.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.metadata.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.projects.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПСКП/Курсовой/GamerHub/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПСКП/Курсовой/GamerHub/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПСКП/Курсовой/GamerHub/html/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПСКП/Курсовой/GamerHub/html/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПСКП/Курсовой/GamerHub/images.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ПСКП/Курсовой/GamerHub/images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ПСКП/Условия/Лабораторная_работа_19_AUTHOR_CASL/~$бораторная_работа_19.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab7/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab7/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/p1v0var/Desktop/enigma-simulator-master"
+    "last_opened_file_path": "C:/Users/p1v0var/Desktop/labs_3-2/ИБ/Lab6"
   }
 }]]></component>
   <component name="RunManager">
@@ -96,6 +74,7 @@
       <workItem from="1714661456772" duration="18000" />
       <workItem from="1714717875701" duration="2697000" />
       <workItem from="1715022551088" duration="6118000" />
+      <workItem from="1715322489459" duration="5000" />
     </task>
     <servers />
   </component>

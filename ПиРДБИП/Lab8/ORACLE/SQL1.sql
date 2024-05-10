@@ -10,6 +10,8 @@ DROP TABLE EmployeeTable;
 -- Удаление типа данных
 DROP TYPE EmployeeObj FORCE;
 
+set SERVEROUTPUT ON;
+
 -- Создание объектного типа данных EmployeeObj
 CREATE OR REPLACE TYPE EmployeeObj AS OBJECT (
   EmployeeID NUMBER,
@@ -24,12 +26,14 @@ CREATE OR REPLACE TYPE EmployeeObj AS OBJECT (
 
   MEMBER FUNCTION compareType (emp2 IN EmployeeObj) RETURN NUMBER,
 
-  MEMBER FUNCTION getDetails RETURN VARCHAR2,
+  MEMBER FUNCTION getDetails RETURN VARCHAR2 DETERMINISTIC,
 
   MEMBER FUNCTION getSalary RETURN NUMBER,
 
   MEMBER PROCEDURE updateSalary (newSalary IN NUMBER),
-
+    
+  MEMBER FUNCTION get_Name RETURN VARCHAR2 DETERMINISTIC,
+  
   ORDER MEMBER FUNCTION compareTypeOrder (emp2 IN EmployeeObj) RETURN NUMBER
 );
 
@@ -57,7 +61,12 @@ CREATE OR REPLACE TYPE BODY EmployeeObj AS
       RETURN 1;
     END IF;
   END;
-
+  
+  MEMBER FUNCTION get_Name RETURN VARCHAR2 DETERMINISTIC IS
+    BEGIN
+        return FullName;
+    END;
+    
   MEMBER FUNCTION getDetails RETURN VARCHAR2 IS
   BEGIN
     RETURN 'Employee ID: ' || TO_CHAR(EmployeeID) || ', Full Name: ' || FullName || ', Position: ' || Position;
@@ -135,7 +144,9 @@ END;
 
 
 -- Создание таблицы EmployeeTable с использованием типа данных EmployeeObjList
-CREATE TABLE EmployeeTable OF EmployeeObj;
+create table EmployeeTable(
+    EmployeeObj EmployeeObj
+);
 
 -- Заполнение таблицы
 INSERT INTO EmployeeTable
@@ -144,8 +155,10 @@ FROM Employees;
 
 
 -- Выборка значений из таблицы
-SELECT e.EmployeeID, e.FullName, e.Position, e.HireDate, e.Salary, e.CandidateID, e.RecruiterID
+SELECT *
 FROM EmployeeTable e;
+
+
 
 
 
@@ -153,8 +166,12 @@ CREATE OR REPLACE VIEW EmployeesObjView AS
 SELECT EmployeeObj(EmployeeID, FullName, Position, HireDate, Salary, CandidateID, RecruiterID) AS Employee
 FROM Employees;
 
-select * from EmployeesObjView;
+SELECT * FROM EmployeesObjView e WHERE e.Employee.get_Name() =  'Молчанов Влас Куприянович';
 
+SELECT * FROM EmployeesObjView e WHERE e.Employee.getSalary() > 100000;
+    
+    
+    
 
 select * from EmployeeTable e
 where e.Position = 'Разработчик ПО';
@@ -164,10 +181,16 @@ CREATE INDEX idx_position ON EmployeeTable(Position);
 -- DROP INDEX idx_position;
 
 
--- Выборка значений из таблицы с использованием метода объекта
-SELECT e.EmployeeID, e.FullName, e.Position, e.HireDate, e.getSalary(), e.CandidateID, e.RecruiterID
+SELECT *
 FROM EmployeeTable e
-WHERE e.getSalary() < 100000;
+WHERE e.EmployeeObj.Salary = 90000;
 
-CREATE BITMAP INDEX empid_idx ON EmployeeTable (getSalary());
+CREATE BITMAP INDEX emp_salary_idx ON EmployeeTable(EmployeeObj.Salary);
+
+-- Выборка значений из таблицы с использованием метода объекта
+SELECT *
+FROM EmployeeTable e
+WHERE e.EmployeeObj.get_Name() = 'Молчанов Влас Куприянович';
+
+create index IndexField on EmployeeTable (EmployeeObj.get_Name());
 

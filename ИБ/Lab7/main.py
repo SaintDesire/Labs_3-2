@@ -50,23 +50,37 @@ decrypt_end_time = time.time()
 
 print("Decrypted: %r \n Time spent: %.6f seconds" % (decrypted_data, decrypt_end_time-decrypt_start_time))
 
+def calculate_avalanche_effect(data, encrypt_key, decrypt_key):
+    encryptor = pyDes.des(encrypt_key, pyDes.CBC, b"\0\0\0\0\0\0\0\0", pad=None, padmode=pyDes.PAD_PKCS5)
+    decryptor = pyDes.des(decrypt_key, pyDes.CBC, b"\0\0\0\0\0\0\0\0", pad=None, padmode=pyDes.PAD_PKCS5)
+
+    encrypted_data = encryptor.encrypt(data)
+    decrypted_data = decryptor.decrypt(encrypted_data)
+
+    return sum(x != y for x, y in zip(data, decrypted_data))
 
 
-def calculate_avalanche_effect(data, key):
-    k = pyDes.des(key, pyDes.CBC, b"\0\0\0\0\0\0\0\0", pad=None, padmode=pyDes.PAD_PKCS5)
-    encrypted_data = k.encrypt(data)
-    return sum(x != y for x, y in zip(encrypted_data, encrypted_data[:1] + encrypted_data[:-1]))
-
-print("Шифрование с использованием слабых ключей:")
-for key in weak_keys:
-    avalanche_effect = calculate_avalanche_effect(data, key)
-    print("Encrypted with weak key %r, Avalanche Effect: %d" % (key, avalanche_effect))
+print("\nШифрование с использованием слабых ключей:")
+for i in range(len(weak_keys)):
+    encrypt_key = weak_keys[i]
+    decrypt_key = weak_keys[(i+1) % len(weak_keys)]
+    avalanche_effect = calculate_avalanche_effect(data, encrypt_key, decrypt_key)
+    print("Encrypted with weak key %r, Decrypted with weak key %r, Avalanche Effect: %d" % (encrypt_key, decrypt_key, avalanche_effect))
+    print("Original: %s" % data.decode())
+    print("Decrypted: %s" % decrypted_data.decode())
+    print('\n')
+    print('*'*50)
 
 print("\nШифрование с использованием полуслабых ключей:")
-for key in semi_weak_keys:
-    avalanche_effect = calculate_avalanche_effect(data, key)
-    print("Encrypted with semi-weak key %r, Avalanche Effect: %d" % (key, avalanche_effect))
-
+for i in range(len(semi_weak_keys)):
+    encrypt_key = semi_weak_keys[i]
+    decrypt_key = semi_weak_keys[(i+1) % len(semi_weak_keys)]
+    avalanche_effect = calculate_avalanche_effect(data, encrypt_key, decrypt_key)
+    print("Encrypted with semi-weak key %r, Decrypted with semi-weak key %r, Avalanche Effect: %d" % (encrypt_key, decrypt_key, avalanche_effect))
+    print("Original: %s" % data.decode())
+    print("Decrypted: %s" % decrypted_data.decode())
+    print('\n')
+    print('*'*50)
 
 # Сжатие открытого текста
 compressed_data = gzip.compress(data)

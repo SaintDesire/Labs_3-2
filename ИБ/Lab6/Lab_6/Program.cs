@@ -16,13 +16,13 @@ namespace Lab_6
                 var enigmaEncrypt = new Enigma(0, 0, 0);
                 var enigmaDecrypt = new Enigma(0, 0, 0);
 
-                var startText = "a";
+                var startText = "aa";
 
                 //reading from start file
-                using (var sr = new StreamReader(folderPath + startFileName))
-                {
-                    startText = sr.ReadToEnd();
-                }
+                //using (var sr = new StreamReader(folderPath + startFileName))
+                //{
+                //    startText = sr.ReadToEnd();
+                //}
 
                 //encrypt text
                 var encryptedMessage = enigmaEncrypt.Encrypt(startText.ToLower().ToCharArray());

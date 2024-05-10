@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u0418\u0411\\Lab6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EC1ABE4E-CD15-4BCC-BF6C-C2D0EEA8A746}|Lab_6\\Lab_6.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u0438\u0431\\lab6\\lab_6\\enigma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC1ABE4E-CD15-4BCC-BF6C-C2D0EEA8A746}|Lab_6\\Lab_6.csproj|solutionrelative:lab_6\\enigma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EC1ABE4E-CD15-4BCC-BF6C-C2D0EEA8A746}|Lab_6\\Lab_6.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u0438\u0431\\lab6\\lab_6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EC1ABE4E-CD15-4BCC-BF6C-C2D0EEA8A746}|Lab_6\\Lab_6.csproj|solutionrelative:lab_6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC1ABE4E-CD15-4BCC-BF6C-C2D0EEA8A746}|Lab_6\\Lab_6.csproj|c:\\users\\p1v0var\\desktop\\labs_3-2\\\u0438\u0431\\lab6\\lab_6\\enigma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC1ABE4E-CD15-4BCC-BF6C-C2D0EEA8A746}|Lab_6\\Lab_6.csproj|solutionrelative:lab_6\\enigma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 384,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Enigma.cs",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u0418\u0411\\Lab6\\Lab_6\\Enigma.cs",
               "RelativeDocumentMoniker": "Lab_6\\Enigma.cs",
               "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u0418\u0411\\Lab6\\Lab_6\\Enigma.cs",
               "RelativeToolTip": "Lab_6\\Enigma.cs",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAYwBgAAAAmAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwJ4AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-07T07:57:51.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u0418\u0411\\Lab6\\Lab_6\\Program.cs",
               "RelativeDocumentMoniker": "Lab_6\\Program.cs",
               "ToolTip": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\\u0418\u0411\\Lab6\\Lab_6\\Program.cs",
               "RelativeToolTip": "Lab_6\\Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAuwA0AAAAwAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAmwBcAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-07T07:57:51.673Z",
               "EditorCaption": ""
