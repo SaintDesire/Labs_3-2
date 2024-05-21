@@ -1,85 +1,91 @@
 const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
-const { sequelize, Game, Op, User } = require('./db');
+const { sequelize, Game, Op, User, Notification } = require('./db');
 const { formatGameTitle, getGameImages } = require('./images');
 const fs = require('fs');
-const routes = require('./routes/authJWT.routes')
-const path = require('path')
+const path = require('path');
+const WebSocket = require('ws');
+const winston = require('winston');
+
+const routes = require('./routes/authJWT.routes');
+const comments = require('./routes/comments.routes');
+const ratings = require('./routes/rating.routes');
+const user = require('./routes/user.routes');
+const wishlist = require('./routes/wishlist.routes');
+const adminPanel = require('./routes/adminPanel.routes');
 
 const app = express();
-app.use(routes)
-const port = 3000;
+const port = process.env.PORT || 443;
+const wsPort = process.env.WS_PORT || 8080;
+
+const wss = new WebSocket.Server({ port: wsPort });
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use(routes);
+app.use(comments);
+app.use(ratings);
+app.use(user);
+app.use(wishlist);
+app.use(adminPanel);
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/html/main.html');
+    res.sendFile(path.join(__dirname, '/html/main.html'));
 });
 
-app.get('/search', (req, res) => {
-    const gameTitle = req.query.gameTitle;
-
-    Game.findAll({
-        where: {
-            title: {
-                [Op.like]: `%${gameTitle.replace('$', '$$')}%`,
+app.get('/search', async (req, res) => {
+    try {
+        const gameTitle = req.query.gameTitle;
+        const games = await Game.findAll({
+            where: {
+                title: {
+                    [Op.like]: `%${gameTitle.replace('$', '$$')}%`,
+                },
             },
-        },
-    })
-        .then((games) => {
-            res.json({ games });
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            res.json({ error: 'An error occurred' });
         });
+        res.json({ games });
+    } catch (error) {
+        winston.error('Error:', error);
+        res.json({ error: 'An error occurred' });
+    }
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/html/loginPage.html');
+    res.sendFile(path.join(__dirname, '/html/loginPage.html'));
 });
+
 app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/html/registerPage.html');
+    res.sendFile(path.join(__dirname, '/html/registerPage.html'));
 });
 
-// Маршрут для обработки запросов GET /game
-app.get('/search-game', (req, res) => {
-    const gameTitle = req.query.gameTitle;
-
-    getGameImages(gameTitle)
-        .then((images) => {
-            if (images.length === 0) {
-                res.json({ error: 'No images found' });
-            } else {
-                res.json({ images });
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            res.json({ error: 'An error occurred' });
-        });
+app.get('/search-game', async (req, res) => {
+    try {
+        const gameTitle = req.query.gameTitle;
+        const images = await getGameImages(gameTitle);
+        if (images.length === 0) {
+            res.json({ error: 'No images found' });
+        } else {
+            res.json({ images });
+        }
+    } catch (error) {
+        winston.error('Error:', error);
+        res.json({ error: 'An error occurred' });
+    }
 });
-
 
 app.get('/gamesList', async (req, res) => {
     try {
-        const games = await Game.findAll({
-            limit: 10, // Максимальное количество игр для вывода (10 строчек)
-        });
-
-        const gamePromises = games.map(async (game) => {
-            const gameTitle = game.title;
-            const images = await getGameImages(gameTitle);
-            const lastImage = images[images.length - 1];
-            return { gameTitle, image: lastImage };
-        });
-
-        const gameResults = await Promise.all(gamePromises);
-
+        const page = req.query.page || 1;
+        const offset = (page - 1) * 15;
+        const games = await Game.findAll({ limit: 15, offset });
+        const gameResults = await Promise.all(games.map(async (game) => {
+            const images = await getGameImages(game.title);
+            return { gameTitle: game.title, image: images[images.length - 1] };
+        }));
         res.json({ games: gameResults });
     } catch (error) {
-        console.error('Error:', error);
+        winston.error('Error:', error);
         res.json({ error: 'An error occurred' });
     }
 });
@@ -87,23 +93,14 @@ app.get('/gamesList', async (req, res) => {
 app.post('/gamesList', async (req, res) => {
     try {
         const genre = req.body.genre;
-        const games = await Game.findAll({
-            where: { genre: genre }, // Добавьте условие where для выборки игр определенной категории
-            limit: 10,
-        });
-
-        const gamePromises = games.map(async (game) => {
-            const gameTitle = game.title;
-            const images = await getGameImages(gameTitle);
-            const lastImage = images[images.length - 1];
-            return { gameTitle, image: lastImage };
-        });
-
-        const gameResults = await Promise.all(gamePromises);
-
+        const games = await Game.findAll({ where: { genre }, limit: 15 });
+        const gameResults = await Promise.all(games.map(async (game) => {
+            const images = await getGameImages(game.title);
+            return { gameTitle: game.title, image: images[images.length - 1] };
+        }));
         res.json({ games: gameResults });
     } catch (error) {
-        console.error('Error:', error);
+        winston.error('Error:', error);
         res.json({ error: 'An error occurred' });
     }
 });
@@ -111,55 +108,100 @@ app.post('/gamesList', async (req, res) => {
 app.get('/game', async (req, res) => {
     try {
         const gameTitle = req.query.gameTitle;
-
-        const gameInfo = {
-            gameTitle: gameTitle,
-        };
-
         res.sendFile(path.join(__dirname, '/html/game.html'), {
-            gameInfo: JSON.stringify(gameInfo)
+            gameInfo: JSON.stringify({ gameTitle })
         });
     } catch (error) {
-        console.error('Error:', error);
+        winston.error('Error:', error);
         res.redirect('/');
     }
 });
 
 app.post('/game', async (req, res) => {
-    const gameTitle = req.body.gameTitle;
-
     try {
-        // Получение данных об игре по названию из базы данных
-        const gameInfo = await Game.findOne({
-            where: { title: gameTitle }
-        });
-
+        const gameTitle = req.body.gameTitle;
+        const gameInfo = await Game.findOne({ where: { title: gameTitle } });
         if (!gameInfo) {
-            // Если игра не найдена, отправляем ошибку клиенту
             return res.status(404).json({ error: 'Game not found' });
         }
-
-        // Получение массива изображений для игры
         const images = await getGameImages(gameInfo.title);
-
-        // Формируем объект с данными об игре
-        const gameData = {
+        res.json({
+            title: gameInfo.title,
+            game_id: gameInfo.game_id,
             release_date: gameInfo.release_date,
             genre: gameInfo.genre,
             developer: gameInfo.developer,
-            images: images
-        };
-
-        // Отправляем данные об игре клиенту
-        res.json(gameData);
+            images
+        });
     } catch (error) {
-        // Если произошла ошибка при получении данных из базы данных, отправляем ошибку клиенту
-        console.error('Error:', error);
+        winston.error('Error:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });
 
-// Запуск сервера
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+app.get('/countGames', async (req, res) => {
+    try {
+        const count = await Game.count();
+        res.json({ count });
+    } catch (error) {
+        winston.error('Ошибка при подсчете количества игр:', error);
+        res.status(500).json({ error: 'Ошибка при подсчете количества игр' });
+    }
 });
+
+app.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, '/html/profile.html'));
+});
+
+app.get('/wishlist', (req, res) => {
+    res.sendFile(path.join(__dirname, '/html/wishlist.html'));
+});
+
+app.get('/admin-panel', async (req, res) => {
+    try {
+        const userId = req.query.userId;
+        const user = await User.findOne({ where: { user_id: userId } });
+        if (user && user.role === 'admin') {
+            res.sendFile(path.join(__dirname, '/html/admin-panel.html'));
+        } else {
+            res.status(403).send('Доступ запрещен');
+        }
+    } catch (error) {
+        winston.error('Error:', error);
+        res.status(500).send('Внутренняя ошибка сервера');
+    }
+});
+
+app.post('/notification', async (req, res) => {
+    try {
+        const notification = await Notification.create({ message: req.body.message });
+        winston.info('Создано новое уведомление:', notification.message);
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify(notification));
+            }
+        });
+        res.status(200).send('Уведомление создано');
+    } catch (error) {
+        winston.error('Ошибка при создании уведомления:', error);
+        res.status(500).send('Ошибка сервера');
+    }
+});
+
+wss.on('connection', (ws) => {
+    ws.on('message', (message) => {
+        ws.send('Получено сообщение: ' + message);
+    });
+
+    ws.on('close', () => {
+        winston.info('Соединение с клиентом закрыто');
+    });
+});
+
+
+
+app.listen(port, () => {
+    winston.info(`Server listening on port ${port}`);
+});
+
+winston.info(`Сервер WebSocket запущен на порту ${wsPort}`);

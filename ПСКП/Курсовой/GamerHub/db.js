@@ -15,7 +15,6 @@ sequelize
         console.error('Unable to connect to the database:', error);
     });
 
-// Определение моделей таблиц
 const User = sequelize.define('Users', {
     user_id: {
         type: Sequelize.INTEGER,
@@ -37,10 +36,19 @@ const User = sequelize.define('Users', {
     role: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    registration_date: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW
+    },
+    avatar: {
+        type: Sequelize.BLOB('long'),
+        allowNull: true
     }
 }, {
-    tableName: 'Users', // Название таблицы
-    timestamps: false // Если нет столбцов created_at и updated_at
+    tableName: 'Users',
+    timestamps: false
 });
 
 const Game = sequelize.define('Games', {
@@ -70,20 +78,27 @@ const Game = sequelize.define('Games', {
     timestamps: false // Если нет столбцов created_at и updated_at
 });
 
-const Rating = sequelize.define('Ratings', {
+const Rating = sequelize.define('Rating', {
     rating_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
+    game_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
     rating: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    comment: {
-        type: Sequelize.TEXT,
-        allowNull: false
-    }
+}, {
+    tableName: 'Ratings',
+    timestamps: false
 });
 
 const Wishlist = sequelize.define('Wishlist', {
@@ -91,10 +106,12 @@ const Wishlist = sequelize.define('Wishlist', {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
-    }
+    },
+    user_id: Sequelize.INTEGER,
+    game_id: Sequelize.INTEGER
 }, {
-    tableName: 'Wishlist', // Название таблицы
-    timestamps: false // Если нет столбцов created_at и updated_at
+    tableName: 'Wishlist',
+    timestamps: false
 });
 
 const Notification = sequelize.define('Notifications', {
@@ -108,24 +125,11 @@ const Notification = sequelize.define('Notifications', {
         allowNull: false
     }
 }, {
-    tableName: 'Notifications', // Название таблицы
-    timestamps: false // Если нет столбцов created_at и updated_at
+    tableName: 'Notifications',
+    timestamps: false
 });
 
-const UserList = sequelize.define('UserLists', {
-    list_id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    title: {
-        type: Sequelize.STRING,
-        allowNull: false
-    }
-}, {
-    tableName: 'UserLists', // Название таблицы
-    timestamps: false // Если нет столбцов created_at и updated_at
-});
+
 
 const Feedback = sequelize.define('Feedback', {
     feedback_id: {
@@ -136,55 +140,17 @@ const Feedback = sequelize.define('Feedback', {
     message: {
         type: Sequelize.TEXT,
         allowNull: false
-    }
-}, {
-    tableName: 'Feedback', // Название таблицы
-    timestamps: false // Если нет столбцов created_at и updated_at
-});
-
-const Recommendation = sequelize.define('Recommendations', {
-    recommendation_id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    }
-}, {
-    tableName: 'Recommendations', // Название таблицы
-    timestamps: false // Если нет столбцов created_at и updated_at
-});
-
-const Language = sequelize.define('Languages', {
-    language_id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
     },
-    language_name: {
-        type: Sequelize.STRING,
+    game_id: {
+        type: Sequelize.INTEGER, // Тип поля может отличаться в зависимости от вашей базы данных
         allowNull: false
     }
 }, {
-    tableName: 'Languages', // Название таблицы
-    timestamps: false // Если нет столбцов created_at и updated_at
-});
-
-const Localization = sequelize.define('Localization', {
-    localization_id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    localized_title: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    localized_description: {
-        type: Sequelize.TEXT,
-        allowNull: false
+    tableName: 'Feedback',
+    timestamps: false,
+    associate: function(models) {
+        Feedback.belongsTo(models.User, { foreignKey: 'user_id' });
     }
-}, {
-    tableName: 'Localization', // Название таблицы
-    timestamps: false // Если нет столбцов created_at и updated_at
 });
 
 User.hasMany(Rating, { foreignKey: 'user_id' });
@@ -199,35 +165,10 @@ Wishlist.belongsTo(User, { foreignKey: 'user_id' });
 Game.hasMany(Wishlist, { foreignKey: 'game_id' });
 Wishlist.belongsTo(Game, { foreignKey: 'game_id' });
 
-User.hasMany(Notification, { foreignKey: 'user_id' });
-Notification.belongsTo(User, { foreignKey: 'user_id' });
-
-Game.hasMany(Notification, { foreignKey: 'game_id' });
-Notification.belongsTo(Game, { foreignKey: 'game_id' });
-
-User.hasMany(UserList, { foreignKey: 'user_id' });
-UserList.belongsTo(User, { foreignKey: 'user_id' });
-
-Game.hasMany(UserList, { foreignKey: 'game_id' });
-UserList.belongsTo(Game, { foreignKey: 'game_id' });
-
 User.hasMany(Feedback, { foreignKey: 'user_id' });
 Feedback.belongsTo(User, { foreignKey: 'user_id' });
 
-User.hasMany(Recommendation, { foreignKey: 'user_id' });
-Recommendation.belongsTo(User, { foreignKey: 'user_id' });
 
-Game.hasMany(Recommendation, { foreignKey: 'game_id' });
-Recommendation.belongsTo(Game, { foreignKey: 'game_id' });
-
-Language.hasMany(Localization, { foreignKey: 'language_id' });
-Localization.belongsTo(Language, { foreignKey: 'language_id' });
-
-Game.hasMany(Localization, { foreignKey: 'game_id' });
-Localization.belongsTo(Game, { foreignKey: 'game_id' });
-
-
-// Определите остальные связи
 
 // Синхронизация моделей с базой данных
 async function syncDatabase() {
@@ -239,6 +180,7 @@ async function syncDatabase() {
     }
 }
 
+
 module.exports = {
     sequelize,
     syncDatabase,
@@ -247,10 +189,6 @@ module.exports = {
     Rating,
     Wishlist,
     Notification,
-    UserList,
     Feedback,
-    Recommendation,
-    Language,
-    Localization,
     Op
 };

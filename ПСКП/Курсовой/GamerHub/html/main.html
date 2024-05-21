@@ -4,102 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Search</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-    }
-
-    .main-container {
-      display: flex;
-      flex-direction: row;
-    }
-    .main {
-      width: 70%;
-    }
-    #categories {
-      width: 30%;
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sidebar {
-      width: 20%;
-      float: right;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 50px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input[type="text"] {
-      width: 300px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #gameInfo, #gameInfoList {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .game {
-      border: 1px solid black;
-      padding: 15px;
-      margin: 10px;
-    }
-
-    img {
-      width: 200px;
-      height: 200px;
-      margin: 10px;
-      border: 1px solid black;
-    }
-
-    .suggestion {
-      padding: 5px;
-      margin: 5px;
-      border: 1px solid black;
-      cursor: pointer;
-    }
-
-    .game-link {
-      text-decoration: none;
-      color: inherit;
-    }
-  </style>
+  <link rel="stylesheet" href="/css/main/styles.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-    <form id="form" action="/" method="get">
-      <label for="gameTitle">Game Title:</label>
-      <input type="text" id="gameTitle" name="gameTitle" required autocomplete="off">
-      <button type="submit">Search</button>
-      <div id="suggestionsDiv"></div>
-    </form>
+
+<header>
+  <p id="user-id" style="display: none"></p>
+  <button onclick="window.location.href='/'">Главная</button>
+  <div id="google_translate_element"></div>
+    <div id="user-info">
+      <button id="loginButton" onclick="window.location.href='/login'">Войти</button>
+      <button id="registerButton" onclick="window.location.href='/register'">Регистрация</button>
+      <div id="dropdownMenu" class="dropdown-menu">
+        <button onclick="window.location.href='/profile'">Профиль</button>
+        <button onclick="window.location.href='/wishlist'">Список желаемого</button>
+        <button id="logoutButton">Выйти</button>
+      </div>
+    </div>
+</header>
+
+<form id="form" action="/" method="get">
+  <label for="gameTitle">Game Title:</label>
+  <input type="text" id="gameTitle" name="gameTitle" required autocomplete="off">
+  <button type="submit">Search</button>
+  <div id="suggestionsDiv"></div>
+</form>
+
 <div class="main-container">
   <div class="main">
-
     <div id="gameInfo"></div>
     <div id="gameInfoList"></div>
     <div id="paginationButtons"></div>
@@ -107,263 +42,34 @@
   <div id="categories"></div>
 </div>
 
+<footer>
+  <p>Copyright © 2024 Официальный сайт Gamer Hub</p>
+  <button id="feedbackButton">Обратная связь</button>
+</footer>
+
+<div id="feedbackModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Предоставьте почту и мы с вами свяжемся:</p>
+    <form>
+      <input id="emailInput" type="email" placeholder="Введите вашу почту">
+      <button id="submitButton">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<!--Получение информации о пользователе-->
+<script src="/scripts/main/userInfo.js"></script>
 <!--Поиск игры-->
-<script>
-
-  const form = document.querySelector('form');
-  const gameTitleInput = document.querySelector('#gameTitle');
-  const gameInfoDiv = document.querySelector('#gameInfo');
-
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const gameTitle = gameTitleInput.value;
-
-    fetch('/search-game?gameTitle=' + encodeURIComponent(gameTitle))
-            .then((response) => response.json())
-            .then((data) => {
-              gameInfoDiv.innerHTML = '';
-              if (data.error) {
-                gameInfoDiv.textContent = data.error;
-              } else {
-                const images = data.images;
-                images.forEach((imageUrl, index) => {
-                  const imageElement = document.createElement('img');
-                  imageElement.src = imageUrl;
-                  imageElement.style.width = '200px';
-                  imageElement.style.height = '200px';
-                  imageElement.style.margin = '10px';
-                  gameInfoDiv.appendChild(imageElement);
-                });
-              }
-            })
-            .catch((error) => {
-              gameInfoDiv.textContent = 'An error occurred';
-              console.error('Error:', error);
-            });
-  });
-
-  gameTitleInput.addEventListener('input', (event) => {
-    const input = event.target;
-    const inputValue = input.value;
-
-    if (inputValue.length >= 2) {
-      fetch('/search?gameTitle=' + encodeURIComponent(inputValue))
-              .then((response) => response.json())
-              .then((data) => {
-                const searchResults = data.games;
-                const suggestionsDiv = document.querySelector('#suggestionsDiv');
-
-                if (suggestionsDiv) {
-                  suggestionsDiv.innerHTML = '';
-                } else {
-                  const suggestionsDiv = document.createElement('div');
-                  suggestionsDiv.id = 'suggestionsDiv';
-                  suggestionsDiv.style.display = 'flex';
-                  suggestionsDiv.style.flexWrap = 'wrap';
-                  suggestionsDiv.style.marginTop = '10px';
-                  form.appendChild(suggestionsDiv);
-                }
-
-                searchResults.forEach((game) => {
-                  const suggestion = document.createElement('div');
-                  const suggestionLink = document.createElement('a');
-
-                  suggestionLink.href = '/game?gameTitle=' + encodeURIComponent(game.title);
-                  suggestionLink.classList.add('game-link');
-                  suggestionLink.textContent = game.title;
-
-                  suggestion.classList.add('suggestion');
-                  suggestion.style.padding = '5px';
-                  suggestion.style.margin = '5px';
-                  suggestion.style.border = '1px solid black';
-                  suggestion.addEventListener('click', () => {
-                    gameTitleInput.value = game.title;
-                    suggestionsDiv.remove();
-                    form.dispatchEvent(new Event('submit'));
-                  });
-                  suggestion.appendChild(suggestionLink);
-                  suggestionsDiv.appendChild(suggestion);
-                });
-              })
-              .catch((error) => {
-                console.error('Error:', error);
-              });
-    } else {
-      const suggestionsDiv = document.querySelector('#suggestionsDiv');
-      if (suggestionsDiv) {
-        suggestionsDiv.remove();
-      }
-    }
-  });
-
-  document.addEventListener('click', (event) => {
-    if (gameTitleInput.value.length >= 3) {
-      return;
-    }
-
-    const suggestionsDiv = document.querySelector('#suggestionsDiv');
-    if (event.target !== gameTitleInput && event.target !== suggestionsDiv) {
-      if (suggestionsDiv) {
-        suggestionsDiv.remove();
-      }
-    }
-  });
-
-</script>
+<script src="/scripts/main/findGame.js"></script>
 <!--Загрузка игр-->
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    fetch('/gamesList')
-            .then(response => response.json())
-            .then(data => {
-              if (data.error) {
-                console.error('Error:', data.error);
-              } else {
-                const gameInfo = document.getElementById('gameInfo');
-                data.games.forEach(game => {
-                  const gameLink = document.createElement('a');
-                  gameLink.href = '/game?gameTitle=' + encodeURIComponent(game.gameTitle);
-                  gameLink.classList.add('game-link');
-
-                  const gameElement = document.createElement('div');
-                  gameElement.classList.add('game');
-                  gameElement.style.width = '250px';
-                  gameElement.style.border = '1px solid black';
-                  gameElement.style.padding = '15px';
-                  gameElement.style.textAlign = 'center';
-
-                  const gameTitle = document.createElement('p');
-                  gameTitle.textContent = game.gameTitle;
-                  gameElement.appendChild(gameTitle);
-
-
-                  const lastImage = game.image;
-                  if (lastImage) {
-                    const gameImage = document.createElement('img');
-                    gameImage.src = lastImage;
-                    gameImage.alt = 'Game Image';
-                    gameImage.style.width = '200px';
-                    gameImage.style.height = '200px';
-                    gameImage.style.margin = '10px';
-                    gameImage.style.border = '1px solid black';
-                    gameElement.appendChild(gameImage);
-                  } else {
-                    const noImageText = document.createElement('span');
-                    noImageText.textContent = 'No image';
-                    noImageText.style.display = 'inline-block';
-                    noImageText.style.transform = 'rotate(45deg)';
-                    noImageText.style.margin = '10px';
-                    noImageText.style.border = '1px solid black';
-                    noImageText.style.padding = '5px';
-                    gameElement.appendChild(noImageText);
-                  }
-
-                  gameLink.appendChild(gameElement);
-                  gameInfo.appendChild(gameLink);
-                });
-              }
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-  });
-</script>
-
+<script src="/scripts/main/loadGames.js"></script>
 <!--Категории-->
-<script>
-
-  const categoriesDict = new Set(['Action', 'Role-playing', 'Strategy', 'Driving', 'Sports',
-    'Arcade', 'Shooter', '2D', '3D'])
-  const container = document.getElementById('categories');
-
-  categoriesDict.forEach(category => {
-    const button = document.createElement('button');
-    button.textContent = category;
-    button.style.marginBottom = '5px';
-    container.appendChild(button);
-    button.addEventListener('click', handleCategoryClick);
-  });
-
-
-  // Обработчик нажатия на кнопку категории
-  function handleCategoryClick(event) {
-    const genre = event.target.textContent; // Получаем текстовое значение кнопки
-    console.log(genre)
-    // Отправляем POST запрос на /gamesList с категорией в теле
-    fetch('/gamesList', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ genre }),
-    })
-            .then(response => response.json())
-            .then(data => {
-              if (data.error) {
-                console.error('Error:', data.error);
-              } else {
-                const gameInfoList = document.getElementById('gameInfo');
-
-                while (gameInfoList.firstChild) {
-                  gameInfoList.removeChild(gameInfoList.firstChild);
-                }
-
-                // Вставляем полученные игры
-                data.games.forEach(game => {
-                  const gameElement = document.createElement('div');
-                  const gameTitle = document.createElement('p');
-                  const gameLink = document.createElement('a');
-
-                  gameTitle.textContent = game.gameTitle;
-                  gameLink.href = '/game?gameTitle=' + encodeURIComponent(game.gameTitle);
-                  gameLink.classList.add('game-link');
-
-                  gameElement.classList.add('game');
-                  gameElement.style.width = '250px';
-                  gameElement.style.border = '1px solid black';
-                  gameElement.style.padding = '15px';
-                  gameElement.style.textAlign = 'center';
-                  gameElement.appendChild(gameTitle)
-
-                  const lastImage = game.image;
-                  if (lastImage) {
-                    const gameImage = document.createElement('img');
-                    gameImage.src = lastImage;
-                    gameImage.alt = 'Game Image';
-                    gameImage.style.width = '200px';
-                    gameImage.style.height = '200px';
-                    gameImage.style.margin = '10px';
-                    gameImage.style.border = '1px solid black';
-                    gameElement.appendChild(gameImage);
-                  } else {
-                    const noImageText = document.createElement('span');
-                    noImageText.textContent = 'No image';
-                    noImageText.style.display = 'flex';
-                    noImageText.style.justifyContent = 'center';
-                    noImageText.style.alignItems = 'center';
-                    noImageText.style.width = '200px';
-                    noImageText.style.height = '200px';
-                    noImageText.style.margin = '10px';
-                    noImageText.style.border = '1px solid black';
-                    noImageText.style.padding = '5px';
-                    noImageText.style.fontFamily = 'Arial, sans-serif';
-                    noImageText.style.fontSize = '40px';
-                    gameElement.appendChild(noImageText);
-                  }
-
-                  gameLink.appendChild(gameElement);
-                  gameInfo.appendChild(gameLink);
-                });
-              }
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-  };
-
-  categoryButton.addEventListener('click', handleCategoryClick);
-
-
-</script>
+<script src="/scripts/main/categories.js"></script>
+<!--Уведомления-->
+<script src="scripts/notifications.js"></script>
+<!--Перевод-->
+<script src="scripts/translate.js"></script>
+<script src="scripts/feedback.js"></script>
 </body>
 </html>

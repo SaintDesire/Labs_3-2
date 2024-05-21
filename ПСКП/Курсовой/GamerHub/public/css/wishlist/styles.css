@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+}
+
+#container {
+    margin: 10px 15px;
+    justify-content: center;
+}
+
+#wishlist {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: Arial;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+
+#gameInfo, #gameInfoList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.game {
+    width: 250px;
+    height: 300px;
+    padding: 15px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    transition: 0.5s;
+}
+
+.game:hover {
+    transition: 0.5s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.game-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.game-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.no-image-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    border: 1px solid black;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+}
+
+.game-title {
+    height: 20px;
+}

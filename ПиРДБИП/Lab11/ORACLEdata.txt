@@ -1,0 +1,10 @@
+
+Error starting at line : 21 in command -
+SELECT * FROM TABLE(get_data_by_dates('2021-01-01', '2024-12-31'))
+Error at Command Line : 21 Column : 15
+Error report -
+SQL Error: ORA-22905: невозможно получить доступ к строкам элемента, не являющегося вложенной таблицей
+22905. 00000 -  "cannot access rows from a non-nested table item"
+*Cause:    attempt to access rows of an item whose type is not known at
+           parse time or that is not of a nested table type
+*Action:   use CAST to cast the item to a nested table type

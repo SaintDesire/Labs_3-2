@@ -2,23 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="780eb2e6-6f07-4f84-b63b-d7dfa72381cd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../ИБ/Lab6/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ИБ/Lab6/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/FileContentIndex/8ba3ac6c-ff8f-4950-869a-429ae113c5fd.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/Lab2a/v17/DocumentLayout.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.metadata.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/.vs/ProjectEvaluation/lab2a.projects.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/ASPCMVC03/aspmvc03.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2a/ASPCMVC03/aspmvc03.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab2b/v17/DocumentLayout.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.metadata.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab2b.projects.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/FileContentIndex/239fe7ad-760f-46f2-86cf-825664c34176.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/Lab02b/v17/DocumentLayout.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab02b.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab02b.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab02b.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/.vs/ProjectEvaluation/lab02b.projects.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/bin/Debug/net8.0/ASPCMVC06.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/bin/Debug/net8.0/ASPCMVC06.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/bin/Debug/net8.0/ASPCMVC06.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/bin/Debug/net8.0/ASPCMVC06.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/bin/Debug/net8.0/ASPCMVC06.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/bin/Debug/net8.0/ASPCMVC06.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/bin/Debug/net8.0/ASPCMVC06.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/bin/Debug/net8.0/ASPCMVC06.staticwebassets.runtime.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/ASPCMVC06.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/ASPCMVC06.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ASPCMVC06.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ref/ASPCMVC06.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/ref/ASPCMVC06.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/refint/ASPCMVC06.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/refint/ASPCMVC06.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/staticwebassets.build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/staticwebassets.development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/staticwebassets.pack.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/Debug/net8.0/staticwebassets.pack.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC06/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/ASPCMVC07.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/ASPCMVC07.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/Debug/net8.0/ASPCMVC07.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/Debug/net8.0/ASPCMVC07.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/Debug/net8.0/ASPCMVC07.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/Debug/net8.0/ASPCMVC07.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/Debug/net8.0/ASPCMVC07.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/Debug/net8.0/ASPCMVC07.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/Debug/net8.0/ASPCMVC07.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/Debug/net8.0/ASPCMVC07.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab2/Lab2b/ASPCMVC07/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/FileContentIndex/5d54e04e-0209-490f-8c87-05a10c85e0af.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/Lab03a/v17/DocumentLayout.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/ProjectEvaluation/lab03a.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/ProjectEvaluation/lab03a.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/ProjectEvaluation/lab03a.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/.vs/ProjectEvaluation/lab03a.projects.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/ASPCMVC07/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/ASPCMVC07/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/ASPCMVC07/obj/Debug/net7.0/ASPCMVC07.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/ASPCMVC07/obj/Debug/net7.0/ASPCMVC07.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/ASPCMVC07/obj/Debug/net7.0/ASPCMVC07.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПИС/Lab3/Lab03a/Lab03a/ASPCMVC07/obj/Debug/net7.0/ASPCMVC07.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/loginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/loginPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/registerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/registerPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images.js" beforeDir="false" afterPath="$PROJECT_DIR$/images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Условия/Лабораторная_работа_19_AUTHOR_CASL/~$бораторная_работа_19.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/authJWT.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authJWT.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПиРДБИП/Lab11/MSSQL/SQLQuery1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПиРДБИП/Lab11/MSSQL/SQLQuery1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПиРДБИП/Lab11/MSSQL/export.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПиРДБИП/Lab11/MSSQL/export_csv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ПиРДБИП/Lab9/ORACLE/SQL1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ПиРДБИП/Lab9/ORACLE/SQL1.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +74,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -56,16 +102,21 @@
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.11.1&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.11.1&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/p1v0var/Desktop/labs_3-2/ПСКП/Курсовой/GamerHub&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\p1v0var\Desktop\labs_3-2\ПСКП\Курсовой\GamerHub" />
       <recent name="C:\Users\p1v0var\Desktop\labs_3-2\ПСКП\Курсовой\GamerHub\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\p1v0var\Desktop\labs_3-2\ПСКП\Курсовой\GamerHub\public\css/main" />
+      <recent name="C:\Users\p1v0var\Desktop\labs_3-2\ПСКП\Курсовой\GamerHub\public\scripts/main" />
       <recent name="C:\Users\p1v0var\Desktop\labs_3-2\ПСКП\Курсовой\GamerHub\html" />
     </key>
   </component>
@@ -95,6 +146,13 @@
       <workItem from="1714733379811" duration="5645000" />
       <workItem from="1714816280604" duration="3470000" />
       <workItem from="1715024608094" duration="15000" />
+      <workItem from="1715502878002" duration="68548000" />
+      <workItem from="1715965124211" duration="44000" />
+      <workItem from="1716188445674" duration="2680000" />
+      <workItem from="1716276139151" duration="8896000" />
+      <workItem from="1716292187383" duration="976000" />
+      <workItem from="1716293379809" duration="5877000" />
+      <workItem from="1716308544714" duration="345000" />
     </task>
     <servers />
   </component>

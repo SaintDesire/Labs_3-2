@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\p1v0var\\Desktop\\Lab02b\\ASPCMVC06\\ASPCMVC06.csproj",
+      "projectUniqueName": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab2\\Lab2b\\ASPCMVC06\\ASPCMVC06.csproj",
       "projectName": "ASPCMVC06",
-      "projectPath": "C:\\Users\\p1v0var\\Desktop\\Lab02b\\ASPCMVC06\\ASPCMVC06.csproj",
+      "projectPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab2\\Lab2b\\ASPCMVC06\\ASPCMVC06.csproj",
       "packagesPath": "C:\\Users\\p1v0var\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\p1v0var\\Desktop\\Lab02b\\ASPCMVC06\\obj\\",
+      "outputPath": "C:\\Users\\p1v0var\\Desktop\\labs_3-2\\ПИС\\Lab2\\Lab2b\\ASPCMVC06\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\p1v0var\\AppData\\Roaming\\NuGet\\NuGet.Config",

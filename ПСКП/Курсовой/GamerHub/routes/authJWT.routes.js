@@ -1,5 +1,4 @@
 const Router = require('express');
-const session = require('express-session');
 const jwt = require('jsonwebtoken');
 const router = new Router();
 const fs = require('fs');
@@ -7,6 +6,7 @@ const redis = require("redis");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const { sequelizeClient, User } = require('../db');
+const crypto = require('crypto');
 
 const redisClient = redis.createClient();
 redisClient.connect().then(() => {
@@ -27,13 +27,7 @@ redisClient.on("error", (err) => {
     console.log("Error in the Connection");
 });
 
-router.use(session({
-    secret: 'korshun',
-    resave: false,
-    saveUninitialized: false
-}));
-
-const generateAccesToken = (username, email, _expiresIn = '24m', _secret = secret) => {
+const generateAccessToken = (username, email, _expiresIn = '24m', _secret = secret) => {
     const payload = {
         username,
         email
@@ -51,21 +45,34 @@ function decodeToken(token) {
     }
 }
 
-router.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            console.error('Error destroying session:', err);
-            res.status(500).send('Internal Server Error');
-        } else {
-            res.clearCookie('access_token');
-            res.clearCookie('refresh_token');
-            res.redirect('/login');
-        }
+const authenticateToken = (req, res, next) => {
+    const token = req.cookies.accessToken;
+
+    if (!token) return res.sendStatus(401);
+
+    jwt.verify(token, 'access_secret', (err, user) => {
+        if (err) return res.sendStatus(403);
+        req.user = user;
+        next();
     });
+};
+
+const hashPassword = (password) => {
+    return crypto.createHash('sha256').update(password).digest('hex');
+};
+
+router.get('/logout', (req, res) => {
+    // Очистка куки с токенами
+    res.clearCookie('accessToken', { httpOnly: true, sameSite: 'strict' });
+    res.clearCookie('refreshToken', { httpOnly: true, sameSite: 'strict', path: '/' });
+
+    // Перенаправление на страницу входа
+    res.redirect('/login');
 });
-router.get('/resource', async (req, res) => {
-    if (req.session && req.session.user) {
-        const { username } = req.session.user;
+
+router.get('/resource', authenticateToken, async (req, res) => {
+    try {
+        const { username } = req.user;
         const { refreshToken } = req.cookies;
 
         jwt.verify(refreshToken, 'refresh_secret', async (err, user) => {
@@ -74,34 +81,38 @@ router.get('/resource', async (req, res) => {
             }
         });
 
-        try {
-            console.log("GET | /resource | refreshToken", refreshToken);
-
-            const result2 = await redisClient.get(`key${refreshToken}`);
-
-            if (`${username}` === result2) {
-                return res.status(401).send('Refresh token is in the BLACKLIST :)');
-            }
-        } catch (error) {
-            console.error('Error accessing Redis:', error);
-            return res.status(500).send('Internal Server Error');
+        const result2 = await redisClient.get(`key${refreshToken}`);
+        if (`${username}` === result2) {
+            return res.status(401).send('Refresh token is in the BLACKLIST :)');
         }
 
-        res.send(`Resource page. You're authorized. <br/> Username: ${req.session.user.username} Info: ${req.session.user.email}`);
-    } else {
-        res.status(401).send('Unauthorized');
+        res.send(`Resource page. You're authorized. <br/> Username: ${username} Info: ${req.user.email}`);
+    } catch (error) {
+        console.error('Error accessing resource:', error);
+        return res.status(500).send('Internal Server Error');
     }
+});
+
+router.get('/user-info', authenticateToken, (req, res) => {
+    const { username, email } = req.user;
+
+    User.findOne({ where: { username: username, email: email } })
+        .then(user => {
+            if (user) {
+                res.json(user);
+            } else {
+                res.status(404).send('User not found');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching user data:', error);
+            res.status(500).send('Server Error');
+        });
 });
 
 router.get('/refresh-token', async (req, res) => {
     const existRefreshToken = req.cookies.refreshToken;
-    console.log("/refresh-token | existRefreshToken", existRefreshToken);
     const decodedToken = decodeToken(existRefreshToken);
-
-    if (decodedToken)
-        console.log('Decoded token:', decodedToken);
-    else
-        console.log('Token decoding failed.');
 
     if (existRefreshToken) {
         jwt.verify(existRefreshToken, 'refresh_secret', async (err, user) => {
@@ -109,15 +120,13 @@ router.get('/refresh-token', async (req, res) => {
                 return res.status(401).send('Unauthorized');
             } else if (user) {
                 const usrname = user.username;
-                console.log("Check key: ", `key${existRefreshToken}`);
-
                 const Banned = await redisClient.get(`key${existRefreshToken}`);
                 if (`value ${usrname}` === Banned) {
                     return res.status(401).send('Refresh token in black list');
                 }
 
-                const newAccessToken = generateAccesToken(decodedToken.username, decodedToken.email, '10m', 'access_secret');
-                const newRefreshToken = generateAccesToken(decodedToken.username, decodedToken.email, '24h', 'refresh_secret');
+                const newAccessToken = generateAccessToken(decodedToken.username, decodedToken.email, '10m', 'access_secret');
+                const newRefreshToken = generateAccessToken(decodedToken.username, decodedToken.email, '24h', 'refresh_secret');
 
                 res.clearCookie('accessToken');
                 res.clearCookie('refreshToken');
@@ -126,12 +135,9 @@ router.get('/refresh-token', async (req, res) => {
                 res.cookie('refreshToken', newRefreshToken, { httpOnly: true, sameSite: 'strict', path: '/' });
 
                 await redisClient.set(`key${existRefreshToken}`, `${usrname}`);
-                const bannedToken = await redisClient.get(`key${existRefreshToken}`);
-
-                console.log('ADD refresh token in black list', bannedToken);
+                console.log('ADD refresh token in black list', await redisClient.get(`key${existRefreshToken}`));
                 console.log('NEW refreshToken ' + newRefreshToken);
-
-                res.redirect('/resource');
+                res.status(200).json({ accessToken: newAccessToken });
             }
         });
     } else {
@@ -141,29 +147,20 @@ router.get('/refresh-token', async (req, res) => {
 
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
+    const hashedPassword = hashPassword(password);
 
     User.findOne({ where: { username: username } })
         .then(user => {
-            if (user) {
-                if (user.password === password) {
-                    req.session.user = user;
-                    try {
-                        const accessToken = generateAccesToken(user.username, user.email, '10m', 'access_secret');
-                        const refreshToken = generateAccesToken(user.username, user.email, '24h', 'refresh_secret');
+            if (user && user.password === hashedPassword) {
+                const accessToken = generateAccessToken(user.username, user.email, '10m', 'access_secret');
+                const refreshToken = generateAccessToken(user.username, user.email, '24h', 'refresh_secret');
 
-                        res.cookie('accessToken', accessToken, { httpOnly: true, sameSite: 'strict' });
-                        res.cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'strict', path: '/' });
+                res.cookie('accessToken', accessToken, { httpOnly: true, sameSite: 'strict' });
+                res.cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'strict', path: '/' });
 
-                        res.redirect('/resource');
-                    } catch (error) {
-                        console.error('Error:', error);
-                        res.status(500).send('Internal Server Error');
-                    }
-                } else {
-                    res.status(401).send('Incorrect password');
-                }
+                res.status(200).json({ accessToken, refreshToken });
             } else {
-                res.redirect('/login');
+                res.status(401).send("Incorrect username or password");
             }
         })
         .catch(err => {
@@ -173,18 +170,23 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    console.log('register');
     const { username, email, password } = req.body;
-    role = 'user';
+    const role = 'user';
+    const registrationDate = new Date();
+    const hashedPassword = hashPassword(password);
 
     User.findOne({ where: { username: username } })
         .then(existingUser => {
             if (existingUser) {
-                // Имя пользователя уже занято
                 res.status(400).send('Username already taken');
             } else {
-                // Создаем нового пользователя
-                User.create({ username: username, password: password, email: email, role: role })
+                User.create({
+                    username: username,
+                    password: hashedPassword,
+                    email: email,
+                    role: role,
+                    registration_date: registrationDate
+                })
                     .then(user => {
                         res.status(200).redirect('/login');
                     })

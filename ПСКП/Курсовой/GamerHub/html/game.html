@@ -4,102 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-
-        #gameTitle {
-            font-weight: bold;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        #gameImages {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        img {
-            width: 200px;
-            height: 200px;
-            margin: 10px;
-            border: 1px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/game/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="/css/game/comments.css">
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-<div>
-    <image class="main-img"></image>
-    <h1 id="gameTitle"></h1>
-    <div class="game-info">
-        <h3>Дата выпуска: <span id="releaseDate"></span></h3>
-        <h3>Жанр: <span id="genre"></span></h3>
-        <h3>Разработчик: <span id="developer"></span></h3>
+<header>
+    <p id="user-id" style="display: none"></p>
+    <button onclick="window.location.href='/'">Главная</button>
+    <div style="display: flex; flex-direction: row;">
+        <div id="google_translate_element"></div>
+        <div>
+            <button id="loginButton" onclick="window.location.href='/login'">Войти</button>
+            <button id="registerButton" onclick="window.location.href='/register'">Регистрация</button>
+            <div id="dropdownMenu" class="dropdown-menu">
+                <button onclick="window.location.href='/profile'">Профиль</button>
+                <button onclick="window.location.href='/wishlist'">Список желаемого</button>
+                <button id="logoutButton">Выйти</button>
+            </div>
+        </div>
     </div>
-    <div id="gameImages"></div>
+</header>
 
+<div class="container">
+    <div>
+        <image class="main-img" style="user-select: none"></image>
+        <h1 id="gameTitle"></h1>
+        <div style="display: flex; justify-content: space-between">
+            <button id="likeButton">🤍</button>
+            <button id="getUriButton">Поделиться</button>
+        </div>
+        <div class="game-info">
+            <p style="display: none" id="game_id"></p>
+            <h3>Дата выпуска: <span id="releaseDate"></span></h3>
+            <h3>Жанр: <span id="genre"></span></h3>
+            <h3>Разработчик: <span id="developer"></span></h3>
+        </div>
+        <div style="user-select: none">
+            <button id="arrow-up">⬆️</button>
+            <span id="rating-value"></span>
+            <button id="arrow-down">⬇️</button>
+        </div>
+        <div id="gameImages"></div>
+
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="Game Image">
+        </div>
+    </div>
+
+    <div id="comments-section">
+        <h2>Комментарии</h2>
+        <div id="comments-container">
+
+        </div>
+
+        <h2>Написать комментарий</h2>
+        <form id="commentForm">
+            <div class="form-group">
+                <label for="comment">Комментарий</label>
+                <textarea id="comment" name="comment" required></textarea>
+            </div>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
 </div>
 
+
+<footer>
+    <p>Copyright © 2024 Официальный сайт Gamer Hub</p>
+    <button id="feedbackButton">Обратная связь</button>
+</footer>
+
+<div id="feedbackModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Предоставьте почту и мы с вами свяжемся:</p>
+        <form>
+            <input id="emailInput" type="email" placeholder="Введите вашу почту">
+            <button id="submitButton">Отправить</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="scripts/wishlist/userInfo.js"></script>
+<script src="scripts/game/gameInfo.js"></script>
+<script src="scripts/game/comments.js"></script>
+<script src="scripts/main/userInfo.js"></script>
+<script src="scripts/game/ratings.js"></script>
+<script src="scripts/game/favourite.js"></script>
+<script src="scripts/translate.js"></script>
+<script src="scripts/feedback.js"></script>
 <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const gameTitle = decodeURIComponent(window.location.search.split('=')[1]);
+    // Получаем кнопку для получения URI страницы
+    const getUriButton = document.getElementById('getUriButton');
+    getUriButton.addEventListener('click', getUri);
 
-        const gameTitleElement = document.getElementById('gameTitle');
-        const releaseDateElement = document.getElementById('releaseDate');
-        const genreElement = document.getElementById('genre');
-        const developerElement = document.getElementById('developer');
-        const gameImagesElement = document.getElementById('gameImages');
-        const mainImageElement = document.querySelector('.main-img');
+    // Функция для получения URI страницы
+    function getUri() {
+        const uri = window.location.href;
 
-        gameTitleElement.textContent = gameTitle;
-
-        fetch('/game', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ gameTitle: gameTitle })
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    console.error('Error:', data.error);
-                } else {
-                    const images = data.images;
-                    const releaseDate = data.release_date;
-                    const genre = data.genre;
-                    const developer = data.developer;
-
-                    releaseDateElement.textContent = releaseDate;
-                    genreElement.textContent = genre;
-                    developerElement.textContent = developer;
-                    console.log(releaseDate)
-                    console.log(genre)
-
-                    images.forEach((imageUrl, index) => {
-                        if (index !== images.length - 1) {
-                            const imageElement = document.createElement('img');
-                            imageElement.src = imageUrl;
-                            imageElement.alt = 'Game Image';
-                            imageElement.style.width = '200px';
-                            imageElement.style.height = '200px';
-                            imageElement.style.margin = '10px';
-                            imageElement.style.border = '1px solid black';
-                            gameImagesElement.appendChild(imageElement);
-                        }
-                    });
-
-                    mainImageElement.src = images[images.length - 1];
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    });
+        // Проверяем поддержку браузером функции копирования в буфер обмена
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            // Копируем URI в буфер обмена
+            navigator.clipboard.writeText(uri)
+                .then(() => {
+                    alert('URI страницы скопирован в буфер обмена');
+                })
+                .catch((error) => {
+                    console.error('Ошибка при копировании URI страницы:', error);
+                });
+        } else {
+            alert(uri);
+        }
+    }
 </script>
 </body>
 </html>

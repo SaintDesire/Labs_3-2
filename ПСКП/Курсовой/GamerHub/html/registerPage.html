@@ -4,106 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-
-        .container {
-            width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        input {
-            width: 95%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            transition: .5s;
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: 1px solid white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            transition: .5s;
-            background: white;
-            color: #4caf50;
-            border: 1px solid #4caf50;
-        }
-
-        a {
-            margin: 15px;
-            text-decoration: none;
-            color: black;
-        }
-
-        .sign-button {
-            transition: .5s;
-            background: white;
-            color: #4caf50;
-            border: 1px solid #4caf50;
-        }
-
-        .sign-button:hover {
-            transition: .5s;
-            background: #4caf50;
-            color: white;
-            border: 1px solid white;
-        }
-    </style>
+    <link rel="stylesheet" href="css/auth/styles.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
+<header>
+    <div id="google_translate_element"></div>
+    <button onclick="window.location.href='/'">Главная</button>
+</header>
 <div class="container">
     <h1>Registration</h1>
-    <form action="register" method="post">
+    <form id="registrationForm">
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" required pattern="[a-zA-Z0-9]+" title="Please enter a valid username (only alphanumeric characters)">
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,63}" title="Please enter a valid email address">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required pattern="[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]{6,}" minlength="6" title="Please enter a valid password (at least 6 characters)">
         </div>
         <div class="form-group">
             <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
+            <input type="password" id="confirm-password" name="confirm-password" required oninput="checkPasswordMatch()">
+            <span id="password-match-message"></span>
         </div>
         <button type="submit">Register</button>
     </form>
-    <a href="register"><button class="sign-button">Sign In</button></a>
+    <a href="login"><button class="sign-button">Sign In</button></a>
 </div>
+
+<footer>
+    <p>Copyright © 2024 Официальный сайт Gamer Hub</p>
+    <button id="feedbackButton">Обратная связь</button>
+</footer>
+
+<div id="feedbackModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Предоставьте почту и мы с вами свяжемся:</p>
+        <form>
+            <input id="emailInput" type="email" placeholder="Введите вашу почту">
+            <button id="submitButton">Отправить</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function checkPasswordMatch() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm-password").value;
+
+        return password === confirmPassword && password.length >= 6 && confirmPassword.length >= 6;
+    }
+
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        if (!checkPasswordMatch()) {
+            document.getElementById("password-match-message").innerHTML = "Passwords do not match";
+            document.getElementById("password-match-message").style.color = "Red";
+            return;
+        }
+
+        var formData = new FormData(this);
+        var jsonData = {};
+        formData.forEach((value, key) => jsonData[key] = value);
+
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text) });
+                }
+                return response.text();
+            })
+            .then(data => {
+                window.location.href = '/login';
+            })
+            .catch(error => {
+                // Удаляем старое сообщение об ошибке, если оно существует
+                var oldErrorMessage = document.getElementById('error-message');
+                if (oldErrorMessage) {
+                    oldErrorMessage.remove();
+                }
+
+                // Создаем и добавляем новое сообщение об ошибке
+                var errorMessage = document.createElement('div');
+                errorMessage.id = 'error-message';
+                errorMessage.style.color = 'Red';
+                errorMessage.textContent = error.message;
+                document.querySelector('.container').appendChild(errorMessage);
+            });
+    });
+</script>
+<script src="scripts/translate.js"></script>
+<script src="scripts/feedback.js"></script>
 </body>
 </html>

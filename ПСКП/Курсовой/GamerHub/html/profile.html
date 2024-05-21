@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/profile/styles.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+<header>
+  <p id="user-id" style="display: none"></p>
+  <button onclick="window.location.href='/'">Главная</button>
+  <div style="display: flex; flex-direction: row;">
+    <div id="google_translate_element"></div>
+    <div>
+      <button id="loginButton" onclick="window.location.href='/login'">Войти</button>
+      <button id="registerButton" onclick="window.location.href='/register'">Регистрация</button>
+      <div id="dropdownMenu" class="dropdown-menu">
+        <button onclick="window.location.href='/profile'">Профиль</button>
+        <button onclick="window.location.href='/wishlist'">Список желаемого</button>
+        <button id="admin-panel" style="display: none">Админ-панель</button>
+        <button id="logoutButton">Выйти</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="container">
+
+  <h1>Профиль пользователя</h1>
+  <div id="user-info">
+    <img id="avatar" src="img/avatar-default.png" alt="Аватар пользователя">
+    <p id="userId-show"></p>
+    <p id="username-show"></p>
+    <p id="email-show"></p>
+    <p id="date-show"></p>
+    <div id="comment-count"></div>
+  </div>
+
+
+  <button id="edit-button">Редактировать данные</button>
+
+  <div id="edit-user-info" style="display: none;">
+    <label for="username">Имя пользователя:</label>
+    <input type="text" id="username" placeholder="Введите новое имя пользователя">
+    <p id="username-error"></p>
+    <button id="save-username">Изменить</button>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Введите новый email">
+    <button id="save-email">Изменить</button>
+    <p id="email-error"></p>
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" placeholder="Введите новый пароль">
+    <button id="save-password">Изменить</button>
+
+    <label for="avatar">Аватар:</label>
+    <input type="file" id="avatar-upload">
+  </div>
+
+</div>
+
+
+<footer>
+  <p>Copyright © 2024 Официальный сайт Gamer Hub</p>
+  <button id="feedbackButton">Обратная связь</button>
+</footer>
+
+<div id="feedbackModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Предоставьте почту и мы с вами свяжемся:</p>
+    <form>
+      <input id="emailInput" type="email" placeholder="Введите вашу почту">
+      <button id="submitButton">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<script src="scripts/checkAuth.js"></script>
+<script src="scripts/profile/userInfo.js"></script>
+<script src="scripts/main/userInfo.js"></script>
+<script src="scripts/profile/editUser.js"></script>
+<script src="scripts/translate.js"></script>
+<script src="scripts/feedback.js"></script>
+<script>
+  var button = document.getElementById('admin-panel');
+  button.addEventListener('click', function() {
+    var userId = document.getElementById('user-id').textContent;
+    // Перенаправляем на адрес с указанным user-id
+    window.location.href = '/admin-panel?userId=' + userId;
+  });
+</script>
+</body>
+</html>

@@ -13,5 +13,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Calc}/{action=Index}/{id?}");
-
+    
 app.Run();
