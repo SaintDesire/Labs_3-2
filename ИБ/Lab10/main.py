@@ -1,77 +1,58 @@
-import os
-import base64
-from cryptography.hazmat.primitives.asymmetric import rsa, padding
-from cryptography.hazmat.primitives import hashes
+from Crypto.PublicKey import RSA
+from ElGamalCypher import ElGamalCypher
+from RSACypher import RSACypher
 
+class CypherHelper:
+    @staticmethod
+    def get_open_text():
+        with open("open_text.txt", "rb") as file:
+            return file.read()
+
+    @staticmethod
+    def write_to_file(data, filename):
+        with open(filename, "wb") as file:
+            file.write(data)
+
+    @staticmethod
+    def read_from_file(filename):
+        with open(filename, "rb") as file:
+            return file.read()
 
 def main():
-    text = "Hello World Def".lower()
+    fileNameEncryptRSA = "encrypt_rsa.txt"
+    fileNameDecryptRSA = "decrypt_rsa.txt"
+    fileNameEncryptElGamal = "encrypt_el_gamal.txt"
+    fileNameDecryptElGamal = "decrypt_el_gamal.txt"
 
-    open_text = b"Hello World Def"
+    open_text = CypherHelper.get_open_text()
 
-    rsa_private_key = rsa.generate_private_key(
-        public_exponent=65537,
-        key_size=4096
-    )
-    rsa_public_key = rsa_private_key.public_key()
+    rsa_key = RSA.generate(4096)
+    public_key = rsa_key.publickey()
+    private_key = rsa_key
 
-    encrypted_text_rsa = encrypt_rsa(open_text, rsa_public_key)
-    print(encrypted_text_rsa.hex())
-    decrypted_text_rsa = decrypt_rsa(encrypted_text_rsa, rsa_private_key)
-    print(decrypted_text_rsa.decode())
+    encrypted_text_rsa = RSACypher.encrypt(open_text, public_key)
+    decrypted_text_rsa = RSACypher.decrypt(encrypted_text_rsa, private_key)
+    CypherHelper.write_to_file(encrypted_text_rsa, fileNameEncryptRSA)
+    CypherHelper.write_to_file(decrypted_text_rsa, fileNameDecryptRSA)
 
-    p = 137
-    g = 50
-    x = 15
+    p = 29
+    g = 7
+    x = 10
+    el_gamal = ElGamalCypher(p, g, x)
 
-    encrypted_text_gamal = encrypt(text, p, g, x)
-    decrypted_text_gamal = decrypt(encrypted_text_gamal, p, g, x)
+    encrypted_text_el_gamal = el_gamal.encrypt(open_text)
+    decrypted_text_el_gamal = el_gamal.decrypt(encrypted_text_el_gamal)
+    CypherHelper.write_to_file(encrypted_text_el_gamal, fileNameEncryptElGamal)
+    # CypherHelper.write_to_file(decrypted_text_el_gamal, fileNameDecryptElGamal)
 
-    print(decrypted_text_gamal)
+    length = len(CypherHelper.read_from_file("open_text.txt"))
+    length_gamal = len(CypherHelper.read_from_file(fileNameEncryptElGamal))
+    length_rsa = len(CypherHelper.read_from_file(fileNameEncryptRSA))
+    print(f"Gamal length: {length_gamal}\n" +
+          f"RSA length: {length_rsa}\n" +
+          f"Text length: {length}")
 
-
-def encrypt_rsa(plaintext, public_key):
-    ciphertext = public_key.encrypt(
-        plaintext,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    return ciphertext
-
-
-def decrypt_rsa(ciphertext, private_key):
-    plaintext = private_key.decrypt(
-        ciphertext,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    return plaintext
-
-
-def encrypt(plaintext, p, g, x):
-    y = pow(g, x, p)
-    b = []
-    for char in plaintext:
-        b.append(pow(y, 20, p) * ord(char) % p)
-    return b
-
-
-def decrypt(b, p, g, x):
-    dec_data = ""
-    a = pow(g, 20, p)
-    for num in b:
-        p0 = p - 1 - x
-        m1 = pow(a, p0, p)
-        r = (m1 * num) % p
-        dec_data += chr(r)
-    return dec_data
-
+    # RSACypher.first_task()
 
 if __name__ == "__main__":
     main()

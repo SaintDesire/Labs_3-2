@@ -1,3 +1,5 @@
+DELETE FROM VACANCIES_IMPORT;
+
 CREATE OR REPLACE FUNCTION get_data_by_dates(
     p_start_date IN DATE,
     p_end_date IN DATE
@@ -43,4 +45,4 @@ END;
 SPOOL OFF
 SET FEEDBACK ON
 
-SELECT PublicationDate FROM Vacancies;
+SELECT * FROM Vacancies;
