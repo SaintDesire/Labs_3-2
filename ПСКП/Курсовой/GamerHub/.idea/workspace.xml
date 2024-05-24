@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="780eb2e6-6f07-4f84-b63b-d7dfa72381cd" name="Changes" comment="" />
+    <list default="true" id="780eb2e6-6f07-4f84-b63b-d7dfa72381cd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../ИБ/Lab12/rsa.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ИБ/Lab12/rsa.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ИБ/Lab12/schnorr.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ИБ/Lab12/schnorr.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ИБ/Отчеты/Отчет лаб 12.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ИБ/Отчеты/Отчет лаб 12.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,6 +97,7 @@
       <workItem from="1716293379809" duration="5877000" />
       <workItem from="1716308544714" duration="345000" />
       <workItem from="1716479177012" duration="274000" />
+      <workItem from="1716563474061" duration="1618000" />
     </task>
     <servers />
   </component>

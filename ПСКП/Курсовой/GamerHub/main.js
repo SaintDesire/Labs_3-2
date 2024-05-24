@@ -4,19 +4,26 @@ const cheerio = require('cheerio');
 const { sequelize, Game, Op, User, Notification } = require('./db');
 const { formatGameTitle, getGameImages } = require('./images');
 const fs = require('fs');
+const https = require('https');
 const path = require('path');
 const WebSocket = require('ws');
 const winston = require('winston');
-
 const routes = require('./routes/authJWT.routes');
 const comments = require('./routes/comments.routes');
 const ratings = require('./routes/rating.routes');
 const user = require('./routes/user.routes');
 const wishlist = require('./routes/wishlist.routes');
 const adminPanel = require('./routes/adminPanel.routes');
+const http = require('http');
+
+
+const privateKey = fs.readFileSync('https/GamerHub.key', 'utf8');
+const certificate = fs.readFileSync('https/GamerHub.crt', 'utf8');
+const ca = fs.readFileSync('https/CA.crt', 'utf8');
 
 const app = express();
 const port = process.env.PORT || 443;
+const httpPort = 80;
 const wsPort = process.env.WS_PORT || 8080;
 
 const wss = new WebSocket.Server({ port: wsPort });
@@ -29,6 +36,22 @@ app.use(ratings);
 app.use(user);
 app.use(wishlist);
 app.use(adminPanel);
+
+const credentials = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca
+};
+
+app.use((req, res, next) => {
+    if (!req.secure) {
+        // Перенаправление на HTTPS
+        res.redirect(`https://${req.headers.host}${req.url}`);
+    } else {
+        next();
+    }
+});
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/html/main.html'));
@@ -198,10 +221,21 @@ wss.on('connection', (ws) => {
     });
 });
 
+const httpsServer = https.createServer(credentials, app);
 
-
-app.listen(port, () => {
+httpsServer.listen(port, () => {
     winston.info(`Server listening on port ${port}`);
 });
+
+const httpServer = http.createServer((req, res) => {
+    // Перенаправление на HTTPS
+    res.writeHead(301, { Location: `https://${req.headers.host}${req.url}` });
+    res.end();
+});
+
+httpServer.listen(httpPort, () => {
+    winston.info(`HTTP server listening on port ${httpPort}`);
+});
+
 
 winston.info(`Сервер WebSocket запущен на порту ${wsPort}`);

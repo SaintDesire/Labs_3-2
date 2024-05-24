@@ -1,0 +1,116 @@
+### Добавление данных 
+
+# People
+{ "name": "John Doe", "position": "Manager", "age": 35 }
+{ "name": "Jane Smith", "position": Designer", age": 28 }
+{ "name": "Alex Mercer", "position": "Developer", "age": 32 }
+
+# Vacations
+
+{ "person": "John Doe", "start_date": { "$date": "2023-06-01T00:00:00Z" }, "end_date": { "$date": "2023-06-15T00:00:00Z" } }
+
+
+
+### Фильтрация
+
+# Условная операция
+{ "age": { "$gt": 31 } }
+
+# Оператор работы с массивами
+{ "skills": { "$in": ["JavaScript", "Python"] } }
+
+# Оператор $exists
+{ "department": { "$exists": true } }
+
+# Оператор $type
+{ "age": { "$type": "int" } }
+
+# Оператор $regex
+{ "name": { "$regex": "^J" } }
+
+### Выборка используя проекции
+
+{ "name": 1, "position": 1 }
+
+### С помощью функции count() получить число всех элементов любой коллекции,
+### а также число элементов с заданным фильтром.
+
+$count: total
+
+$match: { "age": { "$gt": 31 } }
+
+### 10.	Продемонстрировать использование пустого и непустого фильтра
+### в секции match, группировку по нескольким ключам.
+
+$group : {
+  _id: {
+    position: "$position",
+    department: "$department"
+  },
+  count: {
+    $sum: 1
+  }
+}
+
+
+
+
+
+### Mongosh
+
+# Создание коллекций
+db.createCollection("people")
+db.createCollection("vacations")
+
+# Вставка
+db.people.insertOne({ name: "John Doe", position: "Manager", age: 35 })
+db.people.insertOne({ name: "Jane Smith", position: "Designer", age: 28 })
+db.people.insertOne({ name: "Alex Mercer", position: "Developer", age: 32 })
+
+db.vacations.insertOne({ person: "John Doe", start_date: ISODate("2023-06-01T00:00:00Z"), end_date: ISODate("2023-06-15T00:00:00Z") })
+
+# Изменение
+db.people.updateOne(
+  { name: "John Doe" },
+  { $set: { position: "Senior Manager" } }
+)
+
+# Выборка
+db.people.find({ age: { $gt: 31 } })
+
+db.people.find({ skills: { $in: ["JavaScript", "Python"] } })
+
+db.people.find({ department: { $exists: true } })
+
+db.people.find({ age: { $type: "int" } })
+
+db.people.find({ name: { $regex: /^J/ } })
+
+# Проекция
+db.people.find({}, { name: 1, position: 1 })
+
+# count()
+db.people.count()
+
+# limit()
+db.people.find().limit(2)
+
+# skip()
+db.people.find().skip(1).limit(1)
+
+# distinct()
+db.people.distinct("position")
+
+#aggregate()
+db.people.aggregate([
+  { $group: { _id: "$age", count: { $sum: 1 } } },
+  { $sort: { count: -1 } },
+  { $limit: 2 }
+])
+
+
+# Пустой-непустой match()
+db.people.aggregate([
+  { $match: { department: { $exists: true }, experience: { $exists: false } } },
+  { $group: { _id: { department: "$department", experience: "experience" }, count: { $sum: 1 } } }
+])
